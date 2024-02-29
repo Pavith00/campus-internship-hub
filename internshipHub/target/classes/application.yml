@@ -1,0 +1,7 @@
+spring :
+  data :
+    mongodb :
+      uri : mongodb+srv://pavi:pavi@cluster0.kgkjdpp.mongodb.net/
+      database : CIH
+
+#      auto-index-creation : true
