@@ -1,20 +1,31 @@
 package com.example.internshipHub.Controller;
 
-import com.example.internshipHub.Service.StudentService;
+import com.example.internshipHub.Service.JobService;
+import com.example.internshipHub.model.Job;
 import com.example.internshipHub.model.Student;
+import com.example.internshipHub.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/students")
+@RequestMapping("/student")
 public class StudentController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private JobService jobService;
+
+    @GetMapping("/{studentId}/jobs")
+    public List<Job> getJobsByStudentPath(@PathVariable String studentId) {
+        // Assuming studentService has a method findJobsByStudentPath
+        // that returns a list of jobs based on the student's path
+        return studentService.findJobsByStudentPath(studentId);
+    }
 
     @GetMapping
     public List<Student> getAllStudents() {
@@ -27,22 +38,14 @@ public class StudentController {
     }
 
 
-    @PostMapping
+    @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
     public String addStudent(@RequestBody Student student) {
-        // Initialize paths if not provided
-        if (student.getPreferredPaths() == null) {
-            student.setPreferredPaths(new ArrayList<>());
-        }
         return studentService.addStudent(student);
     }
 
     @PutMapping("/{id}")
     public String updateStudent(@PathVariable String id, @RequestBody Student student) {
-        // Initialize paths if not provided
-        if (student.getPreferredPaths() == null) {
-            student.setPreferredPaths(new ArrayList<>());
-        }
         return studentService.updateStudent(id, student);
     }
 
@@ -51,3 +54,4 @@ public class StudentController {
         return studentService.deleteStudent(id);
     }
 }
+

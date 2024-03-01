@@ -2,15 +2,12 @@ package com.example.internshipHub.Service;
 
 import com.example.internshipHub.exception.ServiceException;
 import com.example.internshipHub.model.Job;
-import com.example.internshipHub.model.Student;
 import com.example.internshipHub.repository.JobRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class JobService {
@@ -82,11 +79,6 @@ public class JobService {
             throw new ServiceException("Error Occurred while Deleting User", e);
         }
     }
-    public List<Job> getJobsForStudent(Student student) {
-        List<Job> allJobs = repository.findAll();
-        return allJobs.stream()
-                .filter(job -> job.getRequiredPaths().containsAll(student.getPreferredPaths()))
-                .collect(Collectors.toList());
-    }
+
 
 }

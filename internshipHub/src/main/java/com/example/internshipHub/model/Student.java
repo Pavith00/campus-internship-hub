@@ -1,5 +1,6 @@
 package com.example.internshipHub.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,11 +17,11 @@ public class Student {
     @Id
     private String id;
     private String university;
-    private String GradOrUn; // Graduate or Undergraduate
-    private int yearThatGraduate; // Year that graduate
+    private String gradOrUn; // Graduate or Undergraduate
+    private int yearThatGraduate; // Year of graduation
     private String birthday;
-    private String path; // Path that he/she needs to get a job
+    private String path; // Path that the student wants to pursue
     private String degree;
     private String department;
-    private List<String> preferredPaths; // Add this field
+
 }

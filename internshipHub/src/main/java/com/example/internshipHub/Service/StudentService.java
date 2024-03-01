@@ -1,11 +1,15 @@
 package com.example.internshipHub.Service;
 
+
 import com.example.internshipHub.exception.ServiceException;
+import com.example.internshipHub.model.Job;
 import com.example.internshipHub.model.Student;
+import com.example.internshipHub.repository.JobRepository;
 import com.example.internshipHub.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -13,6 +17,9 @@ public class StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    @Autowired
+    private JobRepository jobRepository;
 
     public List<Student> getAllStudents() {
         try {
@@ -24,7 +31,8 @@ public class StudentService {
 
     public Student getStudent(String id) {
         try {
-            return studentRepository.findById(id).orElse(null);
+            return studentRepository.findById(id)
+                    .orElseThrow(() -> new ServiceException("Student not found with id: " + id));
         } catch (Exception e) {
             throw new ServiceException("Error occurred while fetching student", e);
         }
@@ -35,21 +43,21 @@ public class StudentService {
             studentRepository.save(student);
             return "Student added successfully";
         } catch (Exception e) {
-            throw new ServiceException("Error occurred while adding student", e);
+            throw new ServiceException("Error occurred while adding a student", e);
         }
     }
 
-    public String updateStudent(String id, Student student) {
+    public String updateStudent(String id, Student updatedStudent) {
         try {
             if (studentRepository.existsById(id)) {
-                student.setId(id);
-                studentRepository.save(student);
+                updatedStudent.setId(id);
+                studentRepository.save(updatedStudent);
                 return "Student updated successfully";
             } else {
-                return "Student with id " + id + " not found";
+                throw new ServiceException("Student not found with id: " + id);
             }
         } catch (Exception e) {
-            throw new ServiceException("Error occurred while updating student", e);
+            throw new ServiceException("Error occurred while updating a student", e);
         }
     }
 
@@ -59,10 +67,28 @@ public class StudentService {
                 studentRepository.deleteById(id);
                 return "Student deleted successfully";
             } else {
-                return "Student with id " + id + " not found";
+                throw new ServiceException("Student not found with id: " + id);
             }
         } catch (Exception e) {
-            throw new ServiceException("Error occurred while deleting student", e);
+            throw new ServiceException("Error occurred while deleting a student", e);
         }
     }
+
+    public List<Job> findJobsByStudentPath(String studentId) {
+        Student student = studentRepository.findById(studentId).orElse(null);
+        if (student == null) {
+            // Handle the case where the student doesn't exist
+            return Collections.emptyList();
+        }
+
+        // Assuming path is a single string in Student entity
+        String path = student.getPath();
+
+        // Now, find all jobs with the same path
+        return jobRepository.findByPath(path);
+    }
+
+
 }
+
+
