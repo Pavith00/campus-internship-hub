@@ -4,9 +4,11 @@ package com.example.internshipHub.Service;
 import com.example.internshipHub.exception.ServiceException;
 import com.example.internshipHub.model.Job;
 import com.example.internshipHub.model.Student;
+import com.example.internshipHub.model.User;
 import com.example.internshipHub.repository.JobRepository;
 import com.example.internshipHub.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -21,6 +23,9 @@ public class StudentService {
     @Autowired
     private JobRepository jobRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public List<Student> getAllStudents() {
         try {
             return studentRepository.findAll();
@@ -29,10 +34,10 @@ public class StudentService {
         }
     }
 
-    public Student getStudent(String id) {
+    public Student getStudent(String username) {
         try {
-            return studentRepository.findById(id)
-                    .orElseThrow(() -> new ServiceException("Student not found with id: " + id));
+            return studentRepository.findById(username)
+                    .orElseThrow(() -> new ServiceException("Student not found with username: " + username));
         } catch (Exception e) {
             throw new ServiceException("Error occurred while fetching student", e);
         }
@@ -61,13 +66,13 @@ public class StudentService {
         }
     }
 
-    public String deleteStudent(String id) {
+    public String deleteStudent(String username) {
         try {
-            if (studentRepository.existsById(id)) {
-                studentRepository.deleteById(id);
-                return "Student deleted successfully";
+            if (studentRepository.existsByUsername(username)) {
+                studentRepository.deleteByUsername(username);
+                return username+ "Student deleted successfully";
             } else {
-                throw new ServiceException("Student not found with id: " + id);
+                throw new ServiceException("Student not found with username: " + username);
             }
         } catch (Exception e) {
             throw new ServiceException("Error occurred while deleting a student", e);
@@ -86,6 +91,21 @@ public class StudentService {
 
         // Now, find all jobs with the same path
         return jobRepository.findByPath(path);
+    }
+
+    public boolean login(String username, String password){
+        try {
+            if(studentRepository.existsByUsername(username)) {
+                Student student = studentRepository.findByUsername(username);
+                boolean a = passwordEncoder.matches(password, student.getPassword());
+                return student != null && a;
+            }
+            else{
+                return false;
+            }
+        } catch(Exception e){
+            throw new ServiceException("Error occurred while login", e);
+        }
     }
 
 

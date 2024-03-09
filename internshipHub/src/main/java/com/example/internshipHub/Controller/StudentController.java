@@ -2,6 +2,7 @@ package com.example.internshipHub.Controller;
 
 import com.example.internshipHub.Service.JobService;
 import com.example.internshipHub.model.Job;
+import com.example.internshipHub.model.LoginDTO;
 import com.example.internshipHub.model.Student;
 import com.example.internshipHub.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +33,9 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
-    @GetMapping("/{id}")
-    public Student getStudent(@PathVariable String id) {
-        return studentService.getStudent(id);
+    @GetMapping("/{username}")
+    public Student getStudent(@PathVariable String username) {
+        return studentService.getStudent(username);
     }
 
 
@@ -44,14 +45,19 @@ public class StudentController {
         return studentService.addStudent(student);
     }
 
-    @PutMapping("/{id}")
-    public String updateStudent(@PathVariable String id, @RequestBody Student student) {
-        return studentService.updateStudent(id, student);
+    @PostMapping("/login")
+    public boolean login(@RequestBody LoginDTO loginDTO){
+        return studentService.login(loginDTO.getUsername(), loginDTO.getPassword());
     }
 
-    @DeleteMapping("/{id}")
-    public String deleteStudent(@PathVariable String id) {
-        return studentService.deleteStudent(id);
+    @PutMapping("/{username}")
+    public String updateStudent(@PathVariable String username, @RequestBody Student student) {
+        return studentService.updateStudent(username, student);
+    }
+
+    @DeleteMapping("/{username}")
+    public String deleteStudent(@PathVariable String username) {
+        return studentService.deleteStudent(username);
     }
 }
 

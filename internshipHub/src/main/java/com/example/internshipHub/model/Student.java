@@ -16,6 +16,18 @@ import java.util.List;
 public class Student {
     @Id
     private String id;
+
+
+    private String name;
+
+    private String phone;
+    private String email;
+    private String username;
+    private String password;
+
+    private String gender;
+    private String address;
+
     private String university;
     private String gradOrUn; // Graduate or Undergraduate
     private int yearThatGraduate; // Year of graduation
@@ -23,5 +35,6 @@ public class Student {
     private String path; // Path that the student wants to pursue
     private String degree;
     private String department;
+
 
 }
