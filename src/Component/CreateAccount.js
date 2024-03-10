@@ -5,7 +5,8 @@ import "./CreateAccount.css";
 
 
 function CreateAccount() {
-  const [name, setName] = useState("");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [birthday, setBirthday] = useState("");
@@ -26,7 +27,8 @@ function CreateAccount() {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:8080/student/add", {
-        name: name,
+        fname: fname,
+        lname: lname,
         email: email,
         phone: phone,
         birthday: birthday,
@@ -42,9 +44,12 @@ function CreateAccount() {
         department: department
       });
       console.log(response.data);
-      alert("User registered successfully");
+      if (response.data.startsWith("Username")) {
+        alert(response.data);
+      } else { alert("User registered successfully");
       // Reset form fields after successful registration
-      setName("");
+      setFname("");
+      setLname("");
       setEmail("");
       setPhone("");
       setBirthday("");
@@ -56,6 +61,7 @@ function CreateAccount() {
       setPath("");
       setDegree("");
       setDepartment("");
+    }
     } catch (error) {
       console.error("Error registering user:", error);
       alert("An error occurred while registering user");
@@ -73,8 +79,13 @@ function CreateAccount() {
         
         <p>Personal Information</p>
         <div className="input-box">
-          <label >Full Name</label>
-          <input type="text" placeholder="Enter full name" value={name} onChange={(e) => setName(e.target.value)} required />
+          <label >First Name</label>
+          <input type="text" placeholder="Enter First name" value={fname} onChange={(e) => setFname(e.target.value)} required />
+        </div>
+
+        <div className="input-box">
+          <label >Last Name</label>
+          <input type="text" placeholder="Enter Last name" value={lname} onChange={(e) => setLname(e.target.value)} required />
         </div>
 
         <div className="input-box">
@@ -145,6 +156,11 @@ function CreateAccount() {
               <label htmlFor="check-Graduate-Undergraduate">Undergraduate</label>
             </div>
          </div>
+
+         <div className="input-box">
+          <label >Year that Graduate</label>
+          <input type="text" placeholder="Enter year name" value={yearThatGraduate} onChange={(e) => setYearThatGraduate(e.target.value)} required />
+        </div>
 
          <div className="input-box">
           <label >Degree</label>
