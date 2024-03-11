@@ -1,22 +1,38 @@
 /* Import Font Dancing Script */
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
 
+
 * {
     margin: 0;
+}
+
+.main {
+    margin-top: 70px; /* Adjust margin to accommodate fixed navbar */
+    margin-left: 250px; /* Adjust content margin to accommodate fixed sidenav */
+    padding: 20px;
 }
 
 body {
     
     font-family: Arial !important;
     overflow: auto !important;
+    background-image: url("../images/04.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+   
 }
 
 /* NavbarTop */
 .navbar-top {
-    background-color: #03166d;
+    background-color: #000000;
     color: #333;
     box-shadow: 0px 4px 8px 0px rgb(77, 76, 76);
     height: 70px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Increase the z-index to ensure navbar is above content */
+
 }
 
 .title {
@@ -60,10 +76,13 @@ body {
 
 /* Sidenav */
 .sidenav {
-    background-color: #1760b3;
+    
+    background-image: url("../images/05.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #110d0d;
     border-bottom-right-radius: 25px;
-    height: 86%;
+    height: 100%;
     left: 0;
     overflow-x: hidden;
     padding-top: 20px;
@@ -71,6 +90,10 @@ body {
     top: 70px;
     width: 250px;
     box-shadow: 1px 1px 9px 1px rgb(11, 39, 95);
+    position: fixed; /* Change to fixed */
+    top: 70px; /* Adjust top position */
+    bottom: 0; /* Stick to the bottom */
+    z-index: 1000; /* Ensure it's above other content */
 }
 
 .profile {
@@ -88,6 +111,7 @@ body {
     font-size: 20px;
     font-weight: bold;
     padding-top: 20px;
+    color: #e7e7e8;
 }
 
 
@@ -142,6 +166,16 @@ body {
     height: auto;
     margin-bottom: 20px;
     padding: 20px 0 20px 50px;
+    text-align: left;
+}
+
+.main .card-body{
+    font-size: 16px;
+}
+
+.main .card-body h3{
+    font-size: 20px;
+    font-weight: 800;
 }
 
 .main .card table {
@@ -155,41 +189,4 @@ body {
     position: absolute;
     color: #e7e7e8;
     right: 14%;
-}
-
-.social-media {
-    text-align: center;
-    width: 90%;
-}
-
-.social-media span {
-    margin: 0 10px;
-}
-
-.fa-facebook:hover {
-    color: #4267b3 !important;
-}
-
-.fa-twitter:hover {
-    color: #1da1f2 !important;
-}
-
-.fa-instagram:hover {
-    color: #ce2b94 !important;
-}
-
-.fa-invision:hover {
-    color: #f83263 !important;
-}
-
-.fa-github:hover {
-    color: #161414 !important;
-}
-
-.fa-whatsapp:hover {
-    color: #25d366 !important;
-}
-
-.fa-snapchat:hover {
-    color: #fffb01 !important;
 }

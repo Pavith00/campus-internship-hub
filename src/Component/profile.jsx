@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Profile() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate(); // Initialize useNavigate
+  const [jobs, setJobs] = useState([]); // State to store fetched jobs
 
   useEffect(() => {
     const username = localStorage.getItem('username');
@@ -20,6 +21,16 @@ function Profile() {
         .catch((error) => {
           console.error('Error fetching user data:', error);
         });
+
+      // Fetch jobs related to the student's path
+      axios
+        .get(`http://localhost:8080/student/username/${username}/jobs`)
+        .then((response) => {
+          setJobs(response.data);
+        })
+        .catch((error) => {
+          console.error('Error fetching jobs:', error);
+        });
     }
   }, []);
 
@@ -29,10 +40,17 @@ function Profile() {
     navigate('/');
   };
 
-   const scrollToTabNavigation = () => {
-    // Scroll to the tab navigation container
-    document.querySelector('.d-flex.align-items-start').scrollIntoView({ behavior: 'smooth' });
+
+
+  const scrollToSection = (e) => {
+    const targetId = e.target.dataset.bsTarget;
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
   };
+
+
 
   return (
     <div>
@@ -41,7 +59,7 @@ function Profile() {
           <h2>
             {user && (
               <div>
-                <h2>Welcome, {user.name}</h2>
+                <h2>Welcome, {user.fname}</h2>
                 {/* Display other user details */}
               </div>
             )}
@@ -49,23 +67,10 @@ function Profile() {
         </div>
 
         <ul>
+
           <li>
-            <a href="#message">
-              <span className="icon-count">29</span>
-              <i className="fa fa-envelope fa-2x"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#notification">
-              <span className="icon-count">59</span>
-              <i className="fa fa-bell fa-2x"></i>
-            </a>
-          </li>
-          <li>
-            <button onClick={handleLogout}
-            class="btn btn-primary"> Logout
-            </button>
-         
+
+
           </li>
         </ul>
       </div>
@@ -74,139 +79,120 @@ function Profile() {
         <div className="profile">
           <img src={logo} alt="Logo" width="120" height="120" />
 
-          <div className="name">ImDezCode</div>
-          
+          <div className="name">JOBVOYEGE</div>
+
         </div>
 
-        <div class="d-flex align-items-start">
-          <div class="nav flex-column nav-pills me-3" id="v-pills-tab" >
-            <button class="nav-link active" id="v-pills-home-tab" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToTabNavigation}>Home</button>
-            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
-            <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>
-            <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
-          </div>
-          
+
+
+
+
+        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" >
+          <button class="nav-link active" id="v-pills-home-tab" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Home</button>
+
+          <button class="nav-link" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Jobs</button>
+
+          {/* Other buttons */}
+
         </div>
 
-        <div className="sidenav-url">
-          <div className="url">
-            <a href="#profile" className="active">
-              Profile
-            </a>
-            
+
+
+        <hr align="center" />
+
+        <button onClick={handleLogout}
+          class="btn btn-primary"> Logout
+        </button>
+
+      </div>
+
+      <br /><br /><br />
+
+      <div className="main" id='home'>
+
+        <h2>IDENTITY</h2>
+        <div class="card">
+          <div class="card-body">
+
+            <table>
+              <tbody>
+
+                <tr>
+                  <td>Email</td>
+                  <td>:</td>
+                  <td>
+                    {user && (
+                      <div>
+                        {user.email}
+                      </div>
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td>University</td>
+                  <td>:</td>
+                  <td>
+                    {user && (
+                      <div>
+                        {user.university}
+                      </div>
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Graduate or Undergarduate</td>
+                  <td>:</td>
+                  <td>
+                    {user && (
+                      <div>
+                        {user.gradOrUn}
+                      </div>
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Degree</td>
+                  <td>:</td>
+                  <td>
+                    {user && (
+                      <div>
+                        {user.degree} in {user.department}
+                      </div>
+                    )}
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
           </div>
-          <div className="url">
-            <a href="#settings">Settings</a>
-            <hr align="center" />
+        </div>
+
+
+        <h2>Jobs For You</h2>
+        <div id="jobs">
+
+
+          <div class="card">
+            <div class="card-body">
+
+              <div>
+                {/* Display fetched jobs */}
+                {jobs.map((job) => (
+                  <div key={job.id}>
+                    <h3>{job.title}</h3>
+                    <p>{job.description}</p>
+                    <p>{job.path}</p>
+                  </div>
+                ))}
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
-
-      <div className="main">
-        <h2>IDENTITY</h2>
-        <div class="card">
-            <div class="card-body">
-                <i class="fa fa-pen fa-xs edit"></i>
-                <table>
-                    <tbody>
-                        
-                        <tr>
-                            <td>Email</td>
-                            <td>:</td>
-                            <td>
-                            {user && (
-                                <div>
-                                  {user.email}
-                                </div>
-                              )}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>University</td>
-                            <td>:</td>
-                            <td>
-                              {user && (
-                                <div>
-                                  {user.university}
-                                </div>
-                              )}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Graduate or Undergarduate</td>
-                            <td>:</td>
-                            <td>
-                            {user && (
-                                <div>
-                                  {user.gradOrUn}
-                                </div>
-                              )}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Degree</td>
-                            <td>:</td>
-                            <td>
-                            {user && (
-                                <div>
-                                  {user.degree} in {user.department}
-                                  </div>
-                              )}
-                            </td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <h2>SOCIAL MEDIA</h2>
-        <div class="card">
-            <div class="card-body">
-                <i class="fa fa-pen fa-xs edit"></i>
-                <div class="social-media">
-                    <span class="fa-stack fa-sm">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <span class="fa-stack fa-sm">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <span class="fa-stack fa-sm">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <span class="fa-stack fa-sm">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-invision fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <span class="fa-stack fa-sm">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <span class="fa-stack fa-sm">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-whatsapp fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <span class="fa-stack fa-sm">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-snapchat fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-            <hr align="center" />
-          </div>
-                </div>
-            </div>
-        </div>
     </div>
-  
-      
-    </div>
+
+
   );
 }
 
