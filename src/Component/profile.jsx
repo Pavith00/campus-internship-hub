@@ -86,22 +86,24 @@ function Profile() {
 
 
 
+        <div className='buttons'>
+          <div class="nav flex-column nav-pills me-3" id="v-pills-tab" >
+            <button class="btn btn-outline-secondary b" id="v-pills-home-tab" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Home</button><br/>
 
-        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" >
-          <button class="nav-link active" id="v-pills-home-tab" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Home</button>
+            <button class="btn btn-outline-secondary b" id="v-pills-jobByPath-tab" data-bs-target="#jobByPath" type="button" role="tab" aria-controls="v-pills-jobByPath" aria-selected="false" onClick={scrollToSection}>Job For You</button><br/>
 
-          <button class="nav-link" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Jobs</button>
+            <button class="btn btn-outline-secondary b" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Jobs</button>
+            {/* Other buttons */}
 
-          {/* Other buttons */}
-
+          </div>
         </div>
 
 
 
         <hr align="center" />
 
-        <button onClick={handleLogout}
-          class="btn btn-primary"> Logout
+        <button onClick={handleLogout} type="button" class="btn btn-outline-danger"> 
+          Logout
         </button>
 
       </div>
@@ -118,8 +120,8 @@ function Profile() {
               <tbody>
 
                 <tr>
-                  <td>Email</td>
-                  <td>:</td>
+                  <td><b>Email</b></td>
+                  <td><b>:</b></td>
                   <td>
                     {user && (
                       <div>
@@ -129,8 +131,8 @@ function Profile() {
                   </td>
                 </tr>
                 <tr>
-                  <td>University</td>
-                  <td>:</td>
+                  <td><b>University</b></td>
+                  <td><b>:</b></td>
                   <td>
                     {user && (
                       <div>
@@ -140,8 +142,8 @@ function Profile() {
                   </td>
                 </tr>
                 <tr>
-                  <td>Graduate or Undergarduate</td>
-                  <td>:</td>
+                  <td><b>Graduate or Undergarduate</b></td>
+                  <td><b>:</b></td>
                   <td>
                     {user && (
                       <div>
@@ -151,8 +153,8 @@ function Profile() {
                   </td>
                 </tr>
                 <tr>
-                  <td>Degree</td>
-                  <td>:</td>
+                  <td><b>Degree</b></td>
+                  <td><b>:</b></td>
                   <td>
                     {user && (
                       <div>
@@ -168,8 +170,8 @@ function Profile() {
         </div>
 
 
-        <h2>Jobs For You</h2>
-        <div id="jobs">
+        <h2>JOBS FOR YOU</h2>
+        <div id="jobByPath">
 
 
           <div class="card">
