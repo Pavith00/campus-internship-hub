@@ -13,8 +13,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Job {
     @Id
     private String id;
+    private String company;
     private String title;
     private String description;
+    private String skills;
     private String path; // Path related to this job (e.g., IT, Marketing, etc.)
 
     // Getters and setters

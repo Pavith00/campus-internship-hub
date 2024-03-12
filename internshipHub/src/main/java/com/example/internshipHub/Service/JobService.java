@@ -31,19 +31,17 @@ public class JobService {
         }
     }
 
-    public  String addJob(Job job){
+    public String addJob(Job job) {
         try {
-            if(!repository.existsByTitle(job.getTitle().trim())) {
-
+            // Check if a job with the same title and company already exists
+            if (repository.existsByTitleAndCompany(job.getTitle().trim(), job.getCompany().trim())) {
+                return "Job " + job.getTitle() + " by company " + job.getCompany() + " already exists";
+            } else {
                 repository.save(job);
-                return "User " + job.getTitle() + " Saved Successfully";
+                return "Job " + job.getTitle() + " saved successfully";
             }
-            else {
-                return "Username " + job.getTitle() + " Already Exists";
-            }
-
         } catch (Exception e) {
-            throw new ServiceException("Error occurred while adding a user", e);
+            throw new ServiceException("Error occurred while adding a job", e);
         }
     }
 

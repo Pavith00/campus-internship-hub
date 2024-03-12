@@ -34,21 +34,27 @@ public class StudentService {
         }
     }
 
-    public Student getStudent(String username) {
-        try {
-            return studentRepository.findById(username)
-                    .orElseThrow(() -> new ServiceException("Student not found with username: " + username));
-        } catch (Exception e) {
-            throw new ServiceException("Error occurred while fetching student", e);
+    public Student getStudent(String username){
+        try{
+            return studentRepository.findByUsername(username);
+        } catch (Exception e){
+            throw new ServiceException("Error occurred while fetching specific user", e);
         }
     }
 
     public String addStudent(Student student) {
         try {
-            studentRepository.save(student);
-            return "Student added successfully";
+            if(!studentRepository.existsByUsername(student.getUsername().trim())) {
+                student.setPassword(passwordEncoder.encode(student.getPassword()));
+                studentRepository.save(student);
+                return "User " + student.getUsername() + " Saved Successfully";
+            }
+            else {
+                return "Username " + student.getUsername() + " Already Exists";
+            }
+
         } catch (Exception e) {
-            throw new ServiceException("Error occurred while adding a student", e);
+            throw new ServiceException("Error occurred while adding a user", e);
         }
     }
 
@@ -79,34 +85,33 @@ public class StudentService {
         }
     }
 
-    public List<Job> findJobsByStudentPath(String studentId) {
-        Student student = studentRepository.findById(studentId).orElse(null);
+    public List<Job> findJobsByStudentUsername(String username) {
+        Student student = studentRepository.findByUsername(username);
         if (student == null) {
             // Handle the case where the student doesn't exist
             return Collections.emptyList();
         }
 
-        // Assuming path is a single string in Student entity
         String path = student.getPath();
 
         // Now, find all jobs with the same path
         return jobRepository.findByPath(path);
     }
 
-    public boolean login(String username, String password){
-        try {
-            if(studentRepository.existsByUsername(username)) {
-                Student student = studentRepository.findByUsername(username);
-                boolean a = passwordEncoder.matches(password, student.getPassword());
-                return student != null && a;
-            }
-            else{
-                return false;
-            }
-        } catch(Exception e){
-            throw new ServiceException("Error occurred while login", e);
+    public boolean login(String username, String password) {
+        // Retrieve the student from the database based on the provided username
+        Student student = studentRepository.findByUsername(username);
+
+        // Check if the student exists and if the password matches
+        if (student != null && student.getPassword().equals(password)) {
+            // Return true if the credentials are valid
+            return true;
+        } else {
+            // Return false if the credentials are invalid
+            return false;
         }
     }
+
 
 
 }

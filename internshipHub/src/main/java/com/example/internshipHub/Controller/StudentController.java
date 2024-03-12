@@ -21,12 +21,13 @@ public class StudentController {
     @Autowired
     private JobService jobService;
 
-    @GetMapping("/{studentId}/jobs")
-    public List<Job> getJobsByStudentPath(@PathVariable String studentId) {
-        // Assuming studentService has a method findJobsByStudentPath
-        // that returns a list of jobs based on the student's path
-        return studentService.findJobsByStudentPath(studentId);
+    @GetMapping("/username/{username}/jobs")
+    public List<Job> getJobsByStudentUsername(@PathVariable String username) {
+        // Assuming studentService has a method findJobsByStudentUsername
+        // that returns a list of jobs based on the student's username
+        return studentService.findJobsByStudentUsername(username);
     }
+
 
     @GetMapping
     public List<Student> getAllStudents() {
@@ -34,7 +35,7 @@ public class StudentController {
     }
 
     @GetMapping("/{username}")
-    public Student getStudent(@PathVariable String username) {
+    public Student getStudentByUsername(@PathVariable String username) {
         return studentService.getStudent(username);
     }
 
