@@ -19,6 +19,7 @@ body {
     background-color: rgb(38, 40, 66) !important;
     background-repeat: no-repeat;
     background-size: cover;
+    
    
 }
 
@@ -77,7 +78,7 @@ body {
 /* Sidenav */
 .sidenav {
     
-    background-color: rgb(37, 38, 54);
+    background-color: rgb(32, 32, 46);
     background-repeat: no-repeat;
     background-size: cover;
     color: #110d0d;
@@ -88,8 +89,8 @@ body {
     padding-top: 20px;
     position: absolute;
     top: 70px;
-    width: 250px;
-    box-shadow: 1px 1px 9px 1px rgb(20, 20, 48);
+    width: 200px;
+    box-shadow: 1px 1px 20px 1px rgb(21, 21, 49);
     position: fixed; /* Change to fixed */
     top: 70px; /* Adjust top position */
     bottom: 0; /* Stick to the bottom */
@@ -167,10 +168,11 @@ hr {
 }
 
 .main .card {
-    background-color:rgb(62, 65, 95);
+    background-color:rgb(21, 21, 36);
     border-radius: 18px;
-    box-shadow: 1px 1px 8px 0 rgb(20, 20, 48);
+    box-shadow: 1px 1px 8px 0 rgb(68, 68, 139);
     height: auto;
+    width: 100% !important;
     margin-bottom: 20px;
     padding: 20px 0 20px 50px;
     text-align: left;
@@ -200,5 +202,26 @@ hr {
 }
 
 .b{
-    border-color: rgb(37, 38, 54) !important;
+    border-color: transparent !important;
+    width: 100%;
 }
+
+.link{
+    color: #bbbbc4 ;
+}
+.logo-container {
+    animation: flip 10s infinite; /* Apply flip animation */
+  }
+  
+  @keyframes flip {
+    0% {
+      transform: perspective(400px) rotateY(0); /* Start with no rotation */
+    }
+    50% {
+      transform: perspective(400px) rotateY(180deg); /* Halfway through, rotate 180 degrees */
+    }
+    100% {
+      transform: perspective(400px) rotateY(360deg); /* Rotate back to the original position */
+    }
+  }
+  

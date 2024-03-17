@@ -1,15 +1,20 @@
-@import url(https://fonts.googleapis.com/css?family=Hind);
+@import url(https://fonts.googleapis.com/css?family=Roboto); /*<!--display the font in a same way in chrome and edge --/>*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 
 body {
 	font-family: 'Open Sans', sans-serif;
 	color: #31383d;
 	font-size: 1.1rem;
+	background-image: url('E:/fullstack-project/InternshipHub_backend/campus_internshiphub_frontend/New folder/campus-internship-hub/src/images/08.jpg');
+	background-attachment: fixed;
+	background-size:cover;
+	
 }
 
 section {
 	padding: 30px 0;
-	background: #322e41;
+	background: color(srgb 0.108039 0.10549 0.117059);
 }
 
 p {
@@ -23,7 +28,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Hind', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 800;
 }
 
@@ -43,7 +48,7 @@ a:focus {
     width: 100% ; /* Set the width to 100% */
     position: fixed;
     height: 70px;
-    background-color: #322e41!important;
+    background-color: #1a1b3f!important;
     background-size: cover;
 }
 
@@ -55,6 +60,7 @@ a:focus {
     color: #fff !important;
     border-color:transparent;
 }
+
 
 .image-job{
     width: 400px;
@@ -97,12 +103,9 @@ a:focus {
 
 header.masthead {
 	padding-top: 4rem;
-	padding-bottom: 4rem;
-	margin-bottom: 3rem;
-	background: #a3bded;
-	background: -webkit-linear-gradient(-20deg, #a3bded 0%, #6991c7 100%);
-	background: -moz-linear-gradient(-20deg, #a3bded 0%, #6991c7 100%);
-	background: linear-gradient(-20deg, #5a5d74 0%, #1a1b3f  100%);
+	padding-bottom: 8rem;
+
+	
 }
 
 header.masthead .site-heading {
@@ -128,7 +131,7 @@ ul.job-list {
 }
 
 ul.job-list > li.job-preview {
-	background: #9f9ea7;
+	background: color(srgb 0.14549 0.140392 0.163529);
 	border: 1px solid #636177;
 	-webkit-border-radius: 0.4rem;
 	-moz-border-radius: 0.4rem;
@@ -151,11 +154,12 @@ ul.job-list > li.job-preview:hover {
 
 .job-title {
 	margin-top: 0.6rem;
-	color: #000;
+	color: #ffffff;
 }
 
 .company {
-	color: #393741;
+	color: color(display-p3 0.75 0.69 1)
+	;
 }
 
 .job-preview .btn {
@@ -182,14 +186,82 @@ ul.job-list > li.job-preview:hover {
 	border: 2px solid #393a5f;
 }
 
+.msgbutton {
+	width: 70px;
+	height: 70px;
+	border-radius: 15px;
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 0px;
+	cursor: pointer;
+	outline: 0px;
+	padding: 0 2px;
+	font-weight: 600;
+	font-size: 15px;
+	color: white;
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+  
+  .msgbackdrop {
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	background-color: rgb(27, 24, 173);
+	z-index: -1;
+	top: 50%;
+	left: 50%;
+	border-radius: 15px;
+	transform: translateX(-50%) translateY(-50%);
+	transition: all ease-in-out 0.5s;
+  }
+  
+  .msgbutton:hover + .msgbackdrop {
+	top: 48%;
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+	transform: rotate(15deg) translateX(-50%) translateY(-50%);
+  }
+  
+  .msgbutton:active,.msgbutton:active +.msgbackdrop {
+	box-shadow: none;
+  }
+
+  .msgbutton-container {
+	position: fixed;
+	top: 490px; /* Adjust this value to position the button vertically */
+	right: 20px; /* Adjust this value to position the button horizontally */
+  }
+
+.search-button{
+	border-color: rgb(167, 158, 216);
+	color: rgb(167, 158, 216);
+}
+
 .search-bar{
-	background-color: #322e41 !important;
+	background-color: transparent !important;
+	padding-bottom: 50px !important;
+	padding-top: 10px;
+	
 }
 
 .search-bar input{
 	background-color: #514d61 !important;
 	color: #f7f6f6 !important;
 }
+
+.mcontent{
+	background-color: rgb(236, 236, 236 ,0.5y) !important;
+	width: 550px;
+}
+
+.zoom-hover {
+	transition: transform 0.5s ease; /* Apply smooth transition */
+  }
+  
+  .zoom-hover:hover {
+	transform: scale(1.2); /* Zoom in on hover */
+  }
+
 
 @media (max-width: 575px) {
 	.job-preview .content {

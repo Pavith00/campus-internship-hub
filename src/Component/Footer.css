@@ -1,0 +1,10 @@
+/* Footer.css */
+.footer {
+    background-color: #292b2c; /* Dark blue background */
+    color: #d3d3d3; /* Light gray text color */
+    padding: 10px 0;
+    
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 import './Login.css';
-import logo from '../images/02.jpg'
+import logo from 'E:/fullstack-project/InternshipHub_backend/campus_internshiphub_frontend/New folder/campus-internship-hub/src/images/02.jpg'
 
 function Login() {
   const [password, setPassword] = useState("");
@@ -48,7 +48,7 @@ function Login() {
     <div>
       <form className="form_container" onSubmit={handleSubmit}>
         <div>
-          <img src={logo} alt="Logo" width={120} />
+          <img src={logo} alt="Logo" width={150} />
         </div>
         <div className="title_container">
           

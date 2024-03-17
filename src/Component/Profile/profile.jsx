@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import './profile.css';
-import logo from '../images/03.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Profile() {
@@ -37,7 +36,7 @@ function Profile() {
   const handleLogout = () => {
     localStorage.removeItem('username');
     // Use navigate function to redirect to login page
-    navigate('/');
+    navigate('/login');
   };
 
 
@@ -54,8 +53,7 @@ function Profile() {
 
   return (
     <div>
-      <div className="navbar-top">
-        <div className="title">
+      <div className="title">
           <h2>
             {user && (
               <div>
@@ -66,33 +64,15 @@ function Profile() {
           </h2>
         </div>
 
-        <ul>
-
-          <li>
-
-
-          </li>
-        </ul>
-      </div>
-
       <div className="sidenav">
-        <div className="profile">
-          <img src={logo} alt="Logo" width="120" height="120" />
-
-          <div className="name">JOBVOYEGE</div>
-
-        </div>
-
-
-
-
+       
         <div className='buttons'>
           <div class="nav flex-column nav-pills me-3" id="v-pills-tab" >
-            <button class="btn btn-outline-secondary b" id="v-pills-home-tab" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Home</button><br/>
+            <button class="btn btn-outline-secondary b" id="v-pills-home-tab" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Home</button><br />
 
-            <button class="btn btn-outline-secondary b" id="v-pills-jobByPath-tab" data-bs-target="#jobByPath" type="button" role="tab" aria-controls="v-pills-jobByPath" aria-selected="false" onClick={scrollToSection}>Job For You</button><br/>
-
-            <button class="btn btn-outline-secondary b" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Jobs</button>
+            <button class="btn btn-outline-secondary b" id="v-pills-jobByPath-tab" data-bs-target="#jobByPath" type="button" role="tab" aria-controls="v-pills-jobByPath" aria-selected="false" onClick={scrollToSection}>Job For You</button><br />
+            <Link to="/" >
+            <button class="btn btn-outline-secondary b" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Jobs</button></Link>
             {/* Other buttons */}
 
           </div>
@@ -102,9 +82,11 @@ function Profile() {
 
         <hr align="center" />
 
-        <button onClick={handleLogout} type="button" class="btn btn-outline-danger"> 
+        <center>
+        <button onClick={handleLogout} type="button" class="btn btn-outline-danger">
           Logout
         </button>
+        </center>
 
       </div>
 
@@ -174,21 +156,35 @@ function Profile() {
         <div id="jobByPath">
 
 
-          <div class="card">
-            <div class="card-body">
 
-              <div>
-                {/* Display fetched jobs */}
-                {jobs.map((job) => (
+
+          <div>
+            {/* Display fetched jobs */}
+            {jobs.map((job) => (
+              <div class="card">
+                <div class="card-body">
                   <div key={job.id}>
-                    <h3>{job.title}</h3>
-                    <p>{job.description}</p>
-                    <p>{job.path}</p>
+                    <h4 className="job-title">
+                      {job.title}
+                    </h4>
+                    <h6 className="company">
+                      {job.company}
+                    </h6>
+                    <h5 className="company">
+                      {job.description}
+                    </h5>
+                    <h5 className="company">
+                      {job.skills}
+                    </h5>
+                    <a href="#" className="btn btn-apply float-sm-right float-xs-left">
+                      Apply
+                    </a>
                   </div>
-                ))}
-              </div>
+                </div>
 
-            </div>
+              </div>
+            ))}
+
           </div>
         </div>
       </div>

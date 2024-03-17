@@ -1,0 +1,45 @@
+.content{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+.form-control{
+    background-color: transparent;
+    color: #9e9c9c;
+   
+}
+
+.transparent-file-input::-webkit-file-upload-button {
+    background-color: transparent; /* For Chrome/Edge */
+    color: #686666;
+  }
+  
+  .transparent-file-input::-webkit-file-upload-button,
+  .transparent-file-input::-ms-browse {
+    background-color: transparent; /* For Firefox */
+    color: #535151;
+  }
+
+.card {
+    background-color:rgb(21, 21, 36);
+    border-radius: 18px;
+    box-shadow: 1px 1px 8px 0 rgb(68, 68, 139);
+    height: auto;
+    margin-bottom: 20px;
+    padding: 20px 0 20px 50px;
+    text-align: left;
+    width: 85%;
+}
+
+.card-body{
+    font-size: 16px;
+    color:rgb(156, 163, 175);
+}
+
+.card-body h3{
+    font-size: 20px;
+    font-weight: 800;
+}
