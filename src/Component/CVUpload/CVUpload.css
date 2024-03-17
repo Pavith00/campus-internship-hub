@@ -1,9 +1,13 @@
-.content{
+
+
+.cvcontent{
 
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh; 
+    
+    
 }
 
 .form-control{
@@ -21,6 +25,10 @@
   .transparent-file-input::-ms-browse {
     background-color: transparent; /* For Firefox */
     color: #535151;
+  }
+
+  .blankk{
+    padding: 5%;
   }
 
 .card {

@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import image from 'E:/fullstack-project/InternshipHub_backend/campus_internshiphub_frontend/New folder/campus-internship-hub/src/images/07.gif';
 import { BsBriefcaseFill, BsTrophy } from 'react-icons/bs'; // Import Bootstrap icon for building
 import { Link } from 'react-router-dom';
-import ChatBot from 'E:/fullstack-project/InternshipHub_backend/campus_internshiphub_frontend/New folder/campus-internship-hub/src/Component/Chatbot.jsx';
+import ChatBot from '../Chatbot/Chatbot.jsx';
 
 function Job() {
     const [jobs, setJobs] = useState([]);
@@ -44,21 +44,23 @@ function Job() {
     return (
         <div>
 
+            <div className='dreamjob'>
             <header className="masthead">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-10 offset-md-1">
                             <div className="site-heading">
-                                <table>
+                                <table >
                                     <tbody>
                                         <tr>
                                             <td style={{ paddingRight: '100px' }}>
-                                                <h1 className="heading">
+                                                <h1 className="heading " style={{ fontSize: '45px' }}>
                                                     Dream Career Awaits.
                                                 </h1>
-                                                <span className="subheading">
+                                                <span className="subheading typing" style={{ fontSize: '20px' }} >
                                                     Your dream job is just a click away. Start exploring today!
                                                 </span>
+                                                
                                             </td>
                                             <td><img className='image-job img-fluid zoom-hover' src={image} alt="Image" /></td>
                                         </tr>
@@ -101,6 +103,7 @@ function Job() {
                 {showModal && <div className="modal-backdrop fade show"></div>}
                 </div>
             </header>
+            </div>
             <div></div>
 
             

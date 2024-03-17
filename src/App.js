@@ -7,7 +7,7 @@ import Job from './Component/Job/Job';
 import Navbar from './Component/Navbar';
 import Footer from './Component/Footer';
 import CVUpload from './Component/CVUpload/CVUpload';
-import ChatBot from './Component/Chatbot';
+import ChatBot from './Component/Chatbot/Chatbot';
 
 function App() {
     return (

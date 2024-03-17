@@ -54,25 +54,25 @@ function Profile() {
   return (
     <div>
       <div className="title">
-          <h2>
-            {user && (
-              <div>
-                <h2>Welcome, {user.fname}</h2>
-                {/* Display other user details */}
-              </div>
-            )}
-          </h2>
-        </div>
+        <h2>
+          {user && (
+            <div>
+              <h2>Welcome, {user.fname}</h2>
+              {/* Display other user details */}
+            </div>
+          )}
+        </h2>
+      </div>
 
       <div className="sidenav">
-       
+
         <div className='buttons'>
           <div class="nav flex-column nav-pills me-3" id="v-pills-tab" >
             <button class="btn btn-outline-secondary b" id="v-pills-home-tab" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Home</button><br />
 
             <button class="btn btn-outline-secondary b" id="v-pills-jobByPath-tab" data-bs-target="#jobByPath" type="button" role="tab" aria-controls="v-pills-jobByPath" aria-selected="false" onClick={scrollToSection}>Job For You</button><br />
             <Link to="/" >
-            <button class="btn btn-outline-secondary b" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Jobs</button></Link>
+              <button class="btn btn-outline-secondary b" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Jobs</button></Link>
             {/* Other buttons */}
 
           </div>
@@ -83,9 +83,9 @@ function Profile() {
         <hr align="center" />
 
         <center>
-        <button onClick={handleLogout} type="button" class="btn btn-outline-danger">
-          Logout
-        </button>
+          <button onClick={handleLogout} type="button" class="btn btn-outline-danger">
+            Logout
+          </button>
         </center>
 
       </div>
@@ -176,9 +176,9 @@ function Profile() {
                     <h5 className="company">
                       {job.skills}
                     </h5>
-                    <a href="#" className="btn btn-apply float-sm-right float-xs-left">
+                    <Link to={`/CVUpload/${job.title}`} className="btn btn-apply float-sm-right float-xs-left"> {/* Update the link */}
                       Apply
-                    </a>
+                    </Link>
                   </div>
                 </div>
 
