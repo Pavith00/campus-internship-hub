@@ -19,8 +19,8 @@ function Navbar() {
                         <b>Login</b>
                     </Link>
                 )}
-                {location.pathname !== '/profile' && (
-                    <Link to="/profile" className="custom-button">
+                {location.pathname !== '/Reg' && (
+                    <Link to="/Reg" className="custom-button">
                         <b>Register</b>
                     </Link>
                 )}

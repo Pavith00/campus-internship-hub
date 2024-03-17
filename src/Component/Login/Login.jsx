@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import './Login.css';
 import logo from 'E:/fullstack-project/InternshipHub_backend/campus_internshiphub_frontend/New folder/campus-internship-hub/src/images/02.jpg'
 
@@ -76,7 +76,9 @@ function Login() {
           <span>Sign In</span>
         </button>
         <div>
-          <p className="link">Don't have an account?<a href="" className="link"> Sign up now</a></p>
+          
+          <p className="link">Don't have an account?<Link to={'/Reg'}><a href="" className="link"> Sign up now</a> </Link></p>
+         
         </div>
         <div className="separator">
           <hr className="line" />

@@ -8,6 +8,7 @@ import Navbar from './Component/Navbar';
 import Footer from './Component/Footer';
 import CVUpload from './Component/CVUpload/CVUpload';
 import ChatBot from './Component/Chatbot/Chatbot';
+import CreateAccount from './Component/Registration/CreateAccount';
 
 function App() {
     return (
@@ -20,6 +21,14 @@ function App() {
                         element={
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
                                 <Login />
+                            </div>
+                        }
+                    />
+                    <Route
+                        path="/Reg"
+                        element={
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
+                                <CreateAccount/>
                             </div>
                         }
                     />
