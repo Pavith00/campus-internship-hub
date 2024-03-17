@@ -25,6 +25,16 @@ public class JobController {
         return service.getJob(title);
     }
 
+    @GetMapping("/location/{location}")
+    public List<Job> getJobsByLocation(@PathVariable String location){
+        return service.getJobsByLocation(location);
+    }
+
+    @GetMapping("/search")
+    public List<Job> searchJobs(@RequestParam("query") String query){
+        return service.searchJobs(query);
+    }
+
     @PostMapping("/post")
     @ResponseStatus(HttpStatus.CREATED)
     public String addJob(@RequestBody Job job){

@@ -18,6 +18,6 @@ public class Job {
     private String description;
     private String skills;
     private String path; // Path related to this job (e.g., IT, Marketing, etc.)
-
+    private String location;
     // Getters and setters
 }

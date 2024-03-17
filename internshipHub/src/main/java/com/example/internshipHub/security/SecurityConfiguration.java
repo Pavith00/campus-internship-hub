@@ -22,6 +22,7 @@ public class SecurityConfiguration {
                         .requestMatchers(new AntPathRequestMatcher("/user/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/job/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/student/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/cv/**")).permitAll()
                         .anyRequest().authenticated())
                 .httpBasic();
         return http.build();

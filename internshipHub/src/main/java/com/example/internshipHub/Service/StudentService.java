@@ -45,18 +45,20 @@ public class StudentService {
     public String addStudent(Student student) {
         try {
             if(!studentRepository.existsByUsername(student.getUsername().trim())) {
-                student.setPassword(passwordEncoder.encode(student.getPassword()));
+                // Remove leading and trailing whitespaces from the username
+                student.setUsername(student.getUsername().trim());
+                // Save the student without modifying the password
                 studentRepository.save(student);
                 return "User " + student.getUsername() + " Saved Successfully";
             }
             else {
                 return "Username " + student.getUsername() + " Already Exists";
             }
-
         } catch (Exception e) {
             throw new ServiceException("Error occurred while adding a user", e);
         }
     }
+
 
     public String updateStudent(String id, Student updatedStudent) {
         try {

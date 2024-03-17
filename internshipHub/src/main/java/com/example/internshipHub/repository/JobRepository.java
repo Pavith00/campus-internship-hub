@@ -28,4 +28,9 @@ public interface JobRepository extends MongoRepository<Job, String>{
     List<Job> findByPath(String path);
 
     boolean existsByTitleAndCompany(String title, String company);
+
+
+    List<Job> findByLocation(String location);
+
+    List<Job> findByTitleContainingIgnoreCaseOrLocationContainingIgnoreCase(String query, String query1);
 }

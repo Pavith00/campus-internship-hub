@@ -31,6 +31,8 @@ public class JobService {
         }
     }
 
+
+
     public String addJob(Job job) {
         try {
             // Check if a job with the same title and company already exists
@@ -79,4 +81,20 @@ public class JobService {
     }
 
 
+    public List<Job> getJobsByLocation(String location) {
+        try {
+            return repository.findByLocation(location);
+        } catch (Exception e) {
+            throw new ServiceException("Error occurred while fetching jobs by location", e);
+        }
+    }
+
+    public List<Job> searchJobs(String query) {
+        try {
+            // Search by title or location
+            return repository.findByTitleContainingIgnoreCaseOrLocationContainingIgnoreCase(query, query);
+        } catch (Exception e) {
+            throw new ServiceException("Error occurred while searching jobs", e);
+        }
+    }
 }
