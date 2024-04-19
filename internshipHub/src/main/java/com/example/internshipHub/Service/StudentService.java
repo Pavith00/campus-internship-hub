@@ -114,6 +114,17 @@ public class StudentService {
         }
     }
 
+    public void saveQuizScore(String username, String quizId, int score) {
+        Student student = studentRepository.findByUsername(username);
+        if (student != null) {
+            student.getQuizScores().put(quizId, score);
+            studentRepository.save(student);
+        }
+    }
+
+
+
+
 
 
 }

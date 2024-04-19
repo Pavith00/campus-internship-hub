@@ -23,6 +23,8 @@ public class SecurityConfiguration {
                         .requestMatchers(new AntPathRequestMatcher("/job/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/student/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/cv/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/quizzes/**")).permitAll()
+
                         .anyRequest().authenticated())
                 .httpBasic();
         return http.build();

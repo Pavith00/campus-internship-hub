@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+import java.util.Map;
 
 @Document(collection = "students")
 @Data
@@ -36,6 +37,5 @@ public class Student {
     private String path; // Path that the student wants to pursue
     private String degree;
     private String department;
-
-
+    private Map<String, Integer> quizScores;
 }
