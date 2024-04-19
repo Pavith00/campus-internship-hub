@@ -72,7 +72,10 @@ function Profile() {
 
             <button class="btn btn-outline-secondary b" id="v-pills-jobByPath-tab" data-bs-target="#jobByPath" type="button" role="tab" aria-controls="v-pills-jobByPath" aria-selected="false" onClick={scrollToSection}>Job For You</button><br />
             <Link to="/" >
-              <button class="btn btn-outline-secondary b" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Jobs</button></Link>
+              <button class="btn btn-outline-secondary b" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Jobs</button></Link><br />
+              <Link to="/quizattempt" >
+              <button class="btn btn-outline-secondary b" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Skill Assesment</button></Link>
+            
             {/* Other buttons */}
 
           </div>
@@ -83,7 +86,7 @@ function Profile() {
         <hr align="center" />
 
         <center>
-          <button onClick={handleLogout} type="button" class="btn btn-outline-danger">
+          <button onClick={handleLogout} type="button" class="btn btn-outline-danger b">
             Logout
           </button>
         </center>

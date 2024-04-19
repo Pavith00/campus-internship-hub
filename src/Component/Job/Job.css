@@ -6,15 +6,13 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	color: #31383d;
 	font-size: 1.1rem;
-	background-image: url('E:/fullstack-project/InternshipHub_backend/campus_internshiphub_frontend/New folder/campus-internship-hub/src/images/08.jpg');
-	background-attachment: fixed;
-	background-size:cover;
+	
 	
 }
 
 section {
 	padding: 30px 0;
-	background: color(srgb 0.108039 0.10549 0.117059);
+	background: rgb(210, 212, 219);
 }
 
 p {
@@ -70,22 +68,12 @@ a:focus {
 	color: #73a5fc;
 }
 
-.custom-navbar {
-    width: 100% ; /* Set the width to 100% */
-    position: fixed;
-    height: 70px;
-    background-color: #1a1b3f!important;
-    background-size: cover;
-}
 
 .custom-navbar.scrolled {
     background-color: rgba(57, 58, 95) !important; /* Change the background color when scrolled */
 }
 
-.custom-button{
-    color: #fff !important;
-    border-color:transparent;
-}
+
 
 .dreamjob{
 	padding: 50px;
@@ -139,7 +127,7 @@ header.masthead {
 
 header.masthead .site-heading {
 	padding: 100px 0 50px;
-	color: #fff;
+	color: #3a3849;
 }
 
 header.masthead .site-heading h1 {
@@ -150,7 +138,7 @@ header.masthead .site-heading .subheading {
 	display: block;
 	font-weight: 300;
 	margin: 0.625rem 0 0;
-	color: #fff;
+	color: #6f6f74;
 }
 
 ul.job-list {

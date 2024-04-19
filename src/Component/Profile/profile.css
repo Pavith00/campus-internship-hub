@@ -16,7 +16,7 @@ body {
     
     font-family: Arial !important;
     overflow: auto !important;
-    background-color: rgb(38, 40, 66) !important;
+    background-color: rgb(223, 224, 231) !important;
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -78,7 +78,7 @@ body {
 /* Sidenav */
 .sidenav {
     
-    background-color: rgb(32, 32, 46);
+    background-color: #c3c4d8 ;
     background-repeat: no-repeat;
     background-size: cover;
     color: #110d0d;
@@ -90,7 +90,7 @@ body {
     position: absolute;
     top: 70px;
     width: 200px;
-    box-shadow: 1px 1px 20px 1px rgb(21, 21, 49);
+    
     position: fixed; /* Change to fixed */
     top: 70px; /* Adjust top position */
     bottom: 0; /* Stick to the bottom */
@@ -161,16 +161,16 @@ hr {
 }
 
 .main h2 {
-    color: rgb(209, 213, 219);
+    color: rgb(47, 54, 65);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 24px;
     margin-bottom: 10px;
 }
 
 .main .card {
-    background-color:rgb(21, 21, 36);
+    background-color:rgb(217, 217, 231);
     border-radius: 18px;
-    box-shadow: 1px 1px 8px 0 rgb(68, 68, 139);
+    box-shadow: 1px 1px 10px 0 rgb(87, 122, 168);
     height: auto;
     width: 100% !important;
     margin-bottom: 20px;
@@ -180,7 +180,7 @@ hr {
 
 .main .card-body{
     font-size: 16px;
-    color:rgb(156, 163, 175);
+    color:rgb(93, 95, 109);
 }
 
 .main .card-body h3{

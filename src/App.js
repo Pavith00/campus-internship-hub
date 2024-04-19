@@ -9,6 +9,9 @@ import Footer from './Component/Footer';
 import CVUpload from './Component/CVUpload/CVUpload';
 import ChatBot from './Component/Chatbot/Chatbot';
 import CreateAccount from './Component/Registration/CreateAccount';
+import QuizAttempt from './Component/QuizAttempt';
+import QuizUpload from './Component/QuizUpload';
+import Forum from './Component/fourm';
 
 function App() {
     return (
@@ -28,7 +31,7 @@ function App() {
                         path="/Reg"
                         element={
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
-                                <CreateAccount/>
+                                <CreateAccount />
                             </div>
                         }
                     />
@@ -37,20 +40,23 @@ function App() {
                         path="/*"
                         element={
                             <>
-                                <Navbar/>
+                                <Navbar />
                                 <div style={{ flex: '1' }}>
                                     <Routes>
                                         <Route path="/" element={<Job />} />
                                         <Route path="/profile" element={<Profile />} />
                                         <Route path="/CVUpload/:jobTitle" element={<CVUpload />} />
                                         <Route path="/chatbot" element={<ChatBot />} />
+                                        <Route path="/quizupload" element={<QuizUpload />} />
+                                        <Route path="/quizattempt" element={<QuizAttempt />} />
+                                        <Route path="/fourm" element={<Forum />} />
                                     </Routes>
                                 </div>
-                                <Footer/>
+                                <Footer />
                             </>
                         }
                     />
-                    
+
                 </Routes>
             </div>
         </Router>

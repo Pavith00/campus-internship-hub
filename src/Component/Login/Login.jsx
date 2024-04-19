@@ -3,12 +3,14 @@ import axios from 'axios';
 import { Link, Navigate } from 'react-router-dom';
 import './Login.css';
 import logo from 'E:/fullstack-project/InternshipHub_backend/campus_internshiphub_frontend/New folder/campus-internship-hub/src/images/02.jpg'
+import QuizAttempt from '../QuizAttempt';
 
 function Login() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
-  
+  const [studentUsername, setStudentUsername] = useState(''); // Set the initial value
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,6 +34,10 @@ function Login() {
       alert("An error occurred while logging in user");
       localStorage.removeItem('username');
     }
+  };
+
+  const handleLogin = (username) => {
+    setStudentUsername(username);
   };
 
   const handleLogout = () => {
@@ -112,6 +118,7 @@ function Login() {
         </button>
         <p className="note">Terms of use &amp; Conditions</p>
       </form>
+      
     </div>
   );
 }
