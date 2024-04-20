@@ -31,7 +31,7 @@
     padding: 5%;
   }
 
-.card {
+  .CVcard {
     background-color:rgb(21, 21, 36);
     border-radius: 18px;
     box-shadow: 1px 1px 8px 0 rgb(68, 68, 139);
@@ -42,12 +42,12 @@
     width: 85%;
 }
 
-.card-body{
+.CVcard-body{
     font-size: 16px;
     color:rgb(156, 163, 175);
 }
 
-.card-body h3{
+.CVcard-body h3{
     font-size: 20px;
     font-weight: 800;
 }

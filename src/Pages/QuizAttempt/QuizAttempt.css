@@ -1,0 +1,99 @@
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+
+  .quiz-list {
+    margin-bottom: 20px;
+  }
+  
+  .quiz-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .quiz-list li {
+    margin-bottom: 10px;
+  }
+  
+  .attempt-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .attempt-section label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .attempt-section input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .attempt-section p {
+    margin-bottom: 10px;
+  }
+  
+  .attempt-section div {
+    margin-bottom: 15px;
+  }
+  
+  .attempt-section input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  .attempt-section button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .attempt-section button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      padding: 10px;
+    }
+  }
+  
+  .quiz-list ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Five buttons per row */
+    gap: 10px; /* Gap between buttons */
+  }
+  
+  .quiz-list li {
+    margin-bottom: 0; /* Remove margin bottom for li elements */
+  }
+  
+  .quiz-list button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Prevent button text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    width: 100%; /* Ensure buttons take up full width of their container */
+  }
+  
+  .quiz-list button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Job.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import image from 'E:/fullstack-project/InternshipHub_backend/campus_internshiphub_frontend/New folder/campus-internship-hub/src/images/07.gif';
+import image from 'E:/fullstack-project/InternshipHub_backend/campus_internshiphub_frontend/New folder/campus-internship-hub/src/Component/images/07.gif';
 import { BsBriefcaseFill, BsTrophy } from 'react-icons/bs'; // Import Bootstrap icon for building
 import { Link } from 'react-router-dom';
 import ChatBot from '../Chatbot/Chatbot.jsx';

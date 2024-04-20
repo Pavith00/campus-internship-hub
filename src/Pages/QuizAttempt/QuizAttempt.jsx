@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './QuizAttempt.css'
 
 function QuizAttempt({ studentEmail }) {
   const [quizzes, setQuizzes] = useState([]);
@@ -51,7 +52,8 @@ function QuizAttempt({ studentEmail }) {
   };
 
   return (
-    <section className="container">
+    <section className="quiz-container">
+      <br></br><br></br><br></br>
       <h1>Attempt Quiz</h1>
       <div className="quiz-list">
         <h2>Available Quizzes</h2>

@@ -172,10 +172,23 @@ function CreateAccount() {
           <input type="text" placeholder="Enter Department name" value={department} onChange={(e) => setDepartment(e.target.value)} required />
         </div>
 
+        
+
         <div className="input-box">
-          <label >Path</label>
-          <input type="text" placeholder="Enter Path" value={path} onChange={(e) => setPath(e.target.value)} required />
-        </div>
+  <label>Path</label>
+  <div className="select-box">
+    <select value={path} onChange={(e) => setPath(e.target.value)} required>
+      <option hidden>Select Path</option>
+      <option value="IT">IT</option>
+      <option value="path2">Statistics</option>
+      <option value="path3"></option>
+      
+    </select>
+  </div>
+</div>
+
+
+        
 
 
         

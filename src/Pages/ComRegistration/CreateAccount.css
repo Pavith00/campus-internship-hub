@@ -1,0 +1,145 @@
+.RegHead {
+    font-size: 30px;
+    font-weight: 550;
+  }
+  
+  .regSub {
+    font-size: 20px;
+  }
+  
+  .form .input-box {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .input-box label {
+    color: #333;
+  }
+  
+  .form :where(.input-box input) {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+  }
+  
+  .input-box input:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .form .column {
+    display: flex;
+    column-gap: 15px;
+  }
+  
+  
+  .address :where(input) {
+    margin-top: 15px;
+  }
+  
+  .select-box select {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    color: #707070;
+    font-size: 1rem;
+  }
+  
+  .form button {
+    height: 55px;
+    width: 100%;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: rgb(130, 106, 251);
+  }
+  
+  .form button:hover {
+    background: rgb(88, 56, 250);
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 500px) {
+    .form .column {
+      flex-wrap: wrap;
+    }
+ 
+  }
+  .input-box textarea {
+    height: auto; /* Remove fixed height */
+    min-height: 100px; /* Set minimum height */
+    max-height: 200px; /* Set maximum height */
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px 15px; /* Adjust padding */
+    resize: vertical; /* Allow vertical resizing */
+  }
+
+  .select-box {
+    position: relative;
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .select-box label {
+    color: #333;
+  }
+  
+  .select-box select {
+    width: 100%;
+    padding: 10px 15px; /* Adjust padding */
+    font-size: 1rem;
+    color: #707070;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff; /* Add background color */
+    appearance: none; /* Remove default appearance */
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .select-box select:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Add arrow icon */
+  .select-box::after {
+    content: '\25BC'; /* Unicode character for down arrow */
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+  /* Adjust arrow icon color */
+  .select-box::after {
+    color: #707070;
+  }
+  
+  /* Add hover effect for select box */
+  .select-box:hover select {
+    border-color: #aaa;
+  }
+  
+  /* Add focus effect for select box */
+  .select-box select:focus {
+    border-color: #555;
+  }
+  

@@ -1,0 +1,124 @@
+/* AdminForm.css */
+
+.admin-card {
+    width: 500px; /* Adjust the max-width as needed */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+  }
+
+.admin-container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-title {
+    text-align: center;
+    color: #333;
+  }
+  
+  .admin-subtitle {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .admin-form-container {
+    margin-bottom: 30px;
+  }
+  
+  .admin-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .admin-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .admin-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .admin-user-list {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  .admin-ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+ /* AdminForm.css */
+.admin-li {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-li span {
+    margin-bottom: 5px;
+  }
+  
+  .admin-delete-btn {
+    margin-top: 10px;
+  }
+  
+  
+  .admin-delete-btn {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .admin-delete-btn:hover {
+    background-color: #c82333;
+  }
+  
+  .admin-link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .admin-link:hover {
+    text-decoration: underline;
+  }
+  
+  .admin-h2,
+.admin-h3 {
+  text-align: center;
+}

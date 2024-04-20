@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './QuizUpload.css'
 
-function UploadQuiz() {
+function QuizUpload() {
   const [quizTitle, setQuizTitle] = useState("");
   const [questions, setQuestions] = useState([{ question: '', options: ['', '', ''], correctAnswer: 0 }]);
   const [quizzes, setQuizzes] = useState([]);
@@ -78,6 +79,7 @@ function UploadQuiz() {
 
   return (
     <section className="container">
+      <br></br><br></br>
       <h1>Upload Quiz</h1>
       <form onSubmit={uploadQuiz}>
         <div className="input-box">
@@ -132,4 +134,4 @@ function UploadQuiz() {
   );
 }
 
-export default UploadQuiz;
+export default QuizUpload;

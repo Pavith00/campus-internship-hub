@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../images/03.png';
+import logo from './.../../images/03.png';
 import './Navbar.css'
 
 function Navbar() {
@@ -27,6 +27,11 @@ function Navbar() {
                 {location.pathname !== '/' && (
                     <Link to="/" className="custom-button">
                         <b>job</b>
+                    </Link>
+                )}
+                {location.pathname !== '/Com-login' && ( /* Add this condition for the "Post a Job" button */
+                    <Link to="/Com-login" className="custom-button">
+                        <b>Post a Job</b>
                     </Link>
                 )}
             </div>
