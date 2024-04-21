@@ -47,7 +47,11 @@ public class StudentService {
             if(!studentRepository.existsByUsername(student.getUsername().trim())) {
                 // Remove leading and trailing whitespaces from the username
                 student.setUsername(student.getUsername().trim());
-                // Save the student without modifying the password
+                // Hash the password
+                student.setPassword(passwordEncoder.encode(student.getRawPassword()));
+                // Clear the raw password
+                student.setRawPassword(null);
+                // Save the student
                 studentRepository.save(student);
                 return "User " + student.getUsername() + " Saved Successfully";
             }
@@ -58,6 +62,7 @@ public class StudentService {
             throw new ServiceException("Error occurred while adding a user", e);
         }
     }
+
 
 
     public String updateStudent(String id, Student updatedStudent) {
@@ -105,7 +110,7 @@ public class StudentService {
         Student student = studentRepository.findByUsername(username);
 
         // Check if the student exists and if the password matches
-        if (student != null && student.getPassword().equals(password)) {
+        if (student != null && passwordEncoder.matches(password, student.getPassword())) {
             // Return true if the credentials are valid
             return true;
         } else {
@@ -113,6 +118,7 @@ public class StudentService {
             return false;
         }
     }
+
 
     public void saveQuizScore(String username, String quizId, int score) {
         Student student = studentRepository.findByUsername(username);

@@ -1,6 +1,7 @@
 package com.example.internshipHub.Service;
 
 import com.example.internshipHub.exception.ServiceException;
+import com.example.internshipHub.model.Student;
 import com.example.internshipHub.model.User;
 import com.example.internshipHub.repository.UserRepository;
 
@@ -37,14 +38,15 @@ public class UserService {
     public  String addUser(User user){
         try {
             if(!repository.existsByUsername(user.getUsername().trim())) {
-                user.setPassword(passwordEncoder.encode(user.getPassword()));
+                // Remove leading and trailing whitespaces from the username
+                user.setUsername(user.getUsername().trim());
+                // Save the student without modifying the password
                 repository.save(user);
                 return "User " + user.getUsername() + " Saved Successfully";
             }
             else {
                 return "Username " + user.getUsername() + " Already Exists";
             }
-
         } catch (Exception e) {
             throw new ServiceException("Error occurred while adding a user", e);
         }
@@ -77,18 +79,17 @@ public class UserService {
         }
     }
 
-    public boolean login(String username, String password){
-        try {
-            if(repository.existsByUsername(username)) {
-                User user = repository.findByUsername(username);
-                boolean a = passwordEncoder.matches(password, user.getPassword());
-                return user != null && a;
-            }
-            else{
-                return false;
-            }
-        } catch(Exception e){
-            throw new ServiceException("Error occurred while login", e);
+    public boolean login(String username, String password) {
+        // Retrieve the student from the database based on the provided username
+        User user = repository.findByUsername(username);
+
+        // Check if the student exists and if the password matches
+        if (user != null && user.getPassword().equals(password)) {
+            // Return true if the credentials are valid
+            return true;
+        } else {
+            // Return false if the credentials are invalid
+            return false;
         }
     }
 

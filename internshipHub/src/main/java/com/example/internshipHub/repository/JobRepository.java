@@ -9,8 +9,6 @@ import java.util.List;
 
 @Repository
 public interface JobRepository extends MongoRepository<Job, String>{
-
-
     /*
     List<Student> findByLnameAndFname(String , String );//entityname,primarykeydatatype
      */
@@ -33,4 +31,11 @@ public interface JobRepository extends MongoRepository<Job, String>{
     List<Job> findByLocation(String location);
 
     List<Job> findByTitleContainingIgnoreCaseOrLocationContainingIgnoreCase(String query, String query1);
+
+
+    Job findByIndustryIgnoreCase(String name);
+
+
+    List<Job> findByCompany(String company);
 }
+

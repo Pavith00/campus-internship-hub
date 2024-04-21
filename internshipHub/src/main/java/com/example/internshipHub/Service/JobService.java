@@ -1,7 +1,9 @@
 package com.example.internshipHub.Service;
 
 import com.example.internshipHub.exception.ServiceException;
+import com.example.internshipHub.model.CV;
 import com.example.internshipHub.model.Job;
+import com.example.internshipHub.repository.CVRepository;
 import com.example.internshipHub.repository.JobRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,12 @@ import java.util.List;
 public class JobService {
     @Autowired
     private JobRepository repository;
+
+    @Autowired
+    private CVRepository cvRepository;
+
+    // Existing methods...
+
 
 
     public List<Job> getAllJobs(){
@@ -31,19 +39,27 @@ public class JobService {
         }
     }
 
+    public Job getJobByIndustry(String name){
+        try{
+            return repository.findByIndustryIgnoreCase(name);
+        } catch (Exception e){
+            throw new ServiceException("Error occurred while fetching job by industry", e);
+        }
+    }
 
-
-    public String addJob(Job job) {
+    public  String addJob(Job job){
         try {
-            // Check if a job with the same title and company already exists
-            if (repository.existsByTitleAndCompany(job.getTitle().trim(), job.getCompany().trim())) {
-                return "Job " + job.getTitle() + " by company " + job.getCompany() + " already exists";
-            } else {
+            if(!repository.existsByTitle(job.getTitle().trim())) {
+
                 repository.save(job);
-                return "Job " + job.getTitle() + " saved successfully";
+                return "User " + job.getTitle() + " Saved Successfully";
             }
+            else {
+                return "Username " + job.getTitle() + " Already Exists";
+            }
+
         } catch (Exception e) {
-            throw new ServiceException("Error occurred while adding a job", e);
+            throw new ServiceException("Error occurred while adding a user", e);
         }
     }
 
@@ -79,8 +95,6 @@ public class JobService {
             throw new ServiceException("Error Occurred while Deleting User", e);
         }
     }
-
-
     public List<Job> getJobsByLocation(String location) {
         try {
             return repository.findByLocation(location);
@@ -97,4 +111,14 @@ public class JobService {
             throw new ServiceException("Error occurred while searching jobs", e);
         }
     }
+
+    public List<Job> getJobsByCompany(String company) {
+        try {
+            return repository.findByCompany(company);
+        } catch (Exception e) {
+            throw new ServiceException("Error occurred while fetching jobs by company", e);
+        }
+    }
+
+
 }

@@ -14,10 +14,11 @@ public class Job {
     @Id
     private String id;
     private String company;
+    private String path;
     private String title;
     private String description;
     private String skills;
-    private String path; // Path related to this job (e.g., IT, Marketing, etc.)
+    private String industry; // Path related to this job (e.g., IT, Marketing, etc.)
     private String location;
     // Getters and setters
 }

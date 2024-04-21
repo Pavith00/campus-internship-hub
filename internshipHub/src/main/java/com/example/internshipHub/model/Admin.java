@@ -6,22 +6,15 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "cv")
+@Document(collection = "admins")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CV {
-
+public class Admin {
     @Id
     private String id;
-    private String fileName;
-    private byte[] fileData;
-    private String firstName;
+
+    private String username;
+    private String password;
     private String email;
-    private String degreeProgram;
-    private String shortDescription;
-    private String jobTitle;
-    private String companyName;
-
-
 }

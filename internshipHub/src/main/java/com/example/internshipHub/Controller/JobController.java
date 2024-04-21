@@ -1,9 +1,11 @@
 package com.example.internshipHub.Controller;
 
 import com.example.internshipHub.Service.JobService;
+import com.example.internshipHub.model.CV;
 import com.example.internshipHub.model.Job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,9 +17,19 @@ public class JobController {
     @Autowired
     private JobService service;
 
+    @GetMapping("/company/{company}")
+    public List<Job> getJobsByCompany(@PathVariable String company) {
+        return service.getJobsByCompany(company);
+    }
+
     @GetMapping
     public List<Job> getAllJobs(){
         return service.getAllJobs();
+    }
+
+    @GetMapping("/industry/{industry}")
+    public Job getJobByIndustry(@PathVariable String industry){
+        return service.getJobByIndustry(industry);
     }
 
     @GetMapping("/{title}")
