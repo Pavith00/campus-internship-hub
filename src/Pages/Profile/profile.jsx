@@ -53,6 +53,7 @@ function Profile() {
 
   return (
     <div>
+      <br></br><br></br>
       <div className="title">
         <h2>
           {user && (

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './QuizUpload.css'
 
 function QuizUpload() {
@@ -7,6 +10,7 @@ function QuizUpload() {
   const [questions, setQuestions] = useState([{ question: '', options: ['', '', ''], correctAnswer: 0 }]);
   const [quizzes, setQuizzes] = useState([]);
   const [selectedQuiz, setSelectedQuiz] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchQuizzes();
@@ -76,9 +80,37 @@ function QuizUpload() {
       alert("An error occurred while uploading quiz");
     }
   };
+  const scrollToSection = (e) => {
+    const targetId = e.target.dataset.bsTarget;
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  const handleLogout = () => {
+    localStorage.removeItem('username');
+    navigate('/adminLogin');
+  };
 
   return (
-    <section className="container">
+    <section className="quiz-container">
+      <div className="sidenav">
+        <div className='buttons'>
+          <div className="nav flex-column nav-pills me-3" id="v-pills-tab">
+          <Link to="/quizupload" >
+            <button className="btn btn-outline-secondary b" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Quiz Upload</button><br />
+            </Link>
+            <Link to="/fss" >
+            <button className="btn btn-outline-secondary b" data-bs-target="#jobByPath" type="button" role="tab" aria-controls="v-pills-jobByPath" aria-selected="false" onClick={scrollToSection}>Mentor</button><br />
+            </Link>
+            
+          </div>
+        </div>
+        <hr align="center" />
+        <center>
+          <button onClick={handleLogout} type="button" className="btn btn-outline-danger">Logout</button>
+        </center>
+      </div>
       <br></br><br></br>
       <h1>Upload Quiz</h1>
       <form onSubmit={uploadQuiz}>
@@ -120,6 +152,7 @@ function QuizUpload() {
       )}
 
       <div className="quiz-list">
+        <br></br>
         <h2>Available Quizzes</h2>
         <ul>
           {quizzes.map((quiz, index) => (

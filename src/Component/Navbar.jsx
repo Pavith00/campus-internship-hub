@@ -14,22 +14,27 @@ function Navbar() {
                  <img src={logo} width="130" height="80" alt="" className="logo-container profile"/> 
             </span>
             <div>
-                {location.pathname !== '/login' && (
+                {location.pathname == '/'  && (
                     <Link to="/login" className="custom-button">
                         <b>Login</b>
                     </Link>
                 )}
-                {location.pathname !== '/Reg' && (
+                {location.pathname == '/' && (
                     <Link to="/Reg" className="custom-button">
                         <b>Register</b>
                     </Link>
                 )}
-                {location.pathname !== '/' && (
+                {location.pathname == '/'  && (
+                    <Link to="/mainAdmin" className="custom-button">
+                        <b>Admin</b>
+                    </Link>
+                )}
+                {location.pathname !== '/' && location.pathname !== '/adminPage' && location.pathname !== '/quizupload' && (
                     <Link to="/" className="custom-button">
                         <b>job</b>
                     </Link>
                 )}
-                {location.pathname !== '/Com-login' && ( /* Add this condition for the "Post a Job" button */
+                {location.pathname !== '/Com-login' && location.pathname !== '/adminPage' && location.pathname !== '/quizupload' && ( /* Add this condition for the "Post a Job" button */
                     <Link to="/Com-login" className="custom-button">
                         <b>Post a Job</b>
                     </Link>

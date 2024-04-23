@@ -1,51 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Add Link import
+import logo from 'E:/fullstack-project/InternshipHub_backend/campus_internshiphub_frontend/New folder/campus-internship-hub/src/Component/images/02.jpg'
 
-function MainAdminLogin() {
-    
+const MainAdminLogin = () => {
+  const [username, setUsername] = useState(''); // Changed 'email' to 'username'
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent form submission
+    if (username === 'admin' && password === 'admin') {
+      // Navigate to profile page if username and password are admin
+      navigate('/admin');
+    } else {
+      // Show alert message if username or password is incorrect
+      window.alert('Incorrect username or password');
+    }
+  };
+
   return (
-    <div className="container">
-      <div className="row justify-content-center mt-5">
-        <div className="col-md-6">
-          <div className="card">
-            <div className="card-body">
-              <h2 className="text-center mb-4">Admin Login</h2>
-              <form>
-                <div className="mb-3">
-                  <label htmlFor="text" className="form-label">Email address</label>
-                  <input type="text" className="form-control" id="email" aria-describedby="emailHelp" />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">Password</label>
-                  <input type="password" className="form-control" id="password" />
-                </div>
-                <div className="mb-3 form-check">
-                  <input type="checkbox" className="form-check-input" id="rememberMe" />
-                  <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
-                </div>
-                <button type="submit" className="btn btn-primary btn-block">Sign in</button>
-              </form>
-              <div className="text-center mt-3">
-                <p>Not a member? <a href="#!">Register</a></p>
-                <p>or sign up with:</p>
-                <button type="button" className="btn btn-link btn-floating mx-1">
-                  <i className="fab fa-facebook-f"></i>
-                </button>
-                <button type="button" className="btn btn-link btn-floating mx-1">
-                  <i className="fab fa-google"></i>
-                </button>
-                <button type="button" className="btn btn-link btn-floating mx-1">
-                  <i className="fab fa-twitter"></i>
-                </button>
-                <button type="button" className="btn btn-link btn-floating mx-1">
-                  <i className="fab fa-github"></i>
-                </button>
-              </div>
-            </div>
-          </div>
+    <div>
+      <form className="form_container" onSubmit={handleSubmit}>
+        <div>
+          <img src={logo} alt="Logo" width={150} />
         </div>
-      </div>
+        <div className="title_container">
+          <span className="subtitle">Get started with us, just create an account and enjoy the experience.</span>
+        </div>
+        <br />
+        <div className="input_container">
+          <label className="input_label" htmlFor="email_field"></label>
+          <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" className="icon">
+            {/* Your SVG code */}
+          </svg>
+          <input placeholder="Username" title="Input title" name="input-name" type="text" className="input_field" id="email_field" value={username} onChange={(e) => setUsername(e.target.value)} />
+        </div>
+        <div className="input_container">
+          <label className="input_label" htmlFor="password_field"></label>
+          <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" className="icon">
+            {/* Your SVG code */}
+          </svg>
+          <input placeholder="Password" title="Input title" name="input-name" type="password" className="input_field" id="password_field" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </div>
+        <button title="Sign In" type="submit" className="sign-in_btn">
+          <span>Sign In</span>
+        </button>
+        <div>
+        <button  className="sign-in_btn" style={{ width: '400px' }}>
+        <Link to="/adminLogin" style={{ textDecoration: 'none', textDecoration: 'none', color: 'white' }}>
+    <span>Login As Admin</span>
+  </Link>
+        </button>
+        </div>
+        <p className="note">Terms of use &amp; Conditions</p>
+      </form>
     </div>
   );
-}
+};
+
+
+
 
 export default MainAdminLogin;

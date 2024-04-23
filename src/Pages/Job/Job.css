@@ -77,7 +77,9 @@ a:focus {
 
 .dreamjob{
 	padding: 50px;
-	background-image: url();
+	background-image: url('E:/fullstack-project/InternshipHub_backend/campus_internshiphub_frontend/New folder/campus-internship-hub/src/Component/images/s.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .image-job{
@@ -137,9 +139,9 @@ header.masthead .site-heading h1 {
 
 header.masthead .site-heading .subheading {
 	display: block;
-	font-weight: 300;
+	font-weight: 400;
 	margin: 0.625rem 0 0;
-	color: #6f6f74;
+	color: #545458;
 }
 
 ul.job-list {

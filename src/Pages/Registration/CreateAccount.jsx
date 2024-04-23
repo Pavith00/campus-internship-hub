@@ -12,7 +12,7 @@ function CreateAccount() {
   const [birthday, setBirthday] = useState("");
   const [gender, setGender] = useState("");
   const [address, setAddress] = useState("");
-  const [password, setPassword] = useState("");
+  const [rawPassword, setRawPassword] = useState("");
   const [username, setUsername] = useState("");
 
   const [university, setUniversity] = useState("");
@@ -34,7 +34,7 @@ function CreateAccount() {
         birthday: birthday,
         gender: gender,
         address: address,
-        password:password,
+        rawPassword:rawPassword,
         username:username,
         university: university,
         gradOrUn: gradOrUn,
@@ -108,7 +108,7 @@ function CreateAccount() {
           </div>
           <div className="input-box">
             <label>Password</label>
-            <input type="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <input type="password" placeholder="Enter Password" value={rawPassword} onChange={(e) => setRawPassword(e.target.value)} required />
             
           </div>
         </div>

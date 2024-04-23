@@ -1,14 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../Profile/profile.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'antd';
+import emailjs from 'emailjs-com';
+
+
 
 function ComProfile() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const [company, setCompany] = useState(null); // State to store company details
   const [candidates, setCandidates] = useState([]); // State to store candidates
+  const form = useRef(null);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  
+
+  
 
   useEffect(() => {
     const username = localStorage.getItem('username');
@@ -52,6 +63,32 @@ function ComProfile() {
     localStorage.removeItem('username');
     navigate('/com-login');
   };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    console.log("Emailss")
+
+    var templateParams = {
+        name: 'James',
+        email: ' ramanayakepavithra2000@gmail.com',
+        message: 'Check this out!',
+    };
+    emailjs.send('service_93clbjx', 'template_yzh8lgg', templateParams)
+        .then(
+            () => {
+                console.log('SUCCESS!');
+                form.current.reset();
+                setErrorMessage('');
+
+            },
+            (error) => {
+                console.log('FAILED...', error.text);
+            },
+        );
+
+
+};
 
   const scrollToSection = (e) => {
     const targetId = e.target.dataset.bsTarget;
@@ -148,6 +185,7 @@ function ComProfile() {
                     <p><b>Short Description: </b>{candidate.shortDescription}</p>
                     {/* Add download button for CV */}
                     <a href={`http://localhost:8080/cv/${candidate.id}`} download>Download CV</a>
+                    <Button onClick={sendEmail} label="Send Message" />
                   </div>
                 ))}
               </div>

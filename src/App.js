@@ -19,8 +19,9 @@ import Postjob from './Pages/ComProfile/Postjob';
 import Candidates from './Pages/ComProfile/Canditade';
 import AdminForm from './Pages/AdminRegistration/AdminForm';
 import AdminLogin from './Pages/AdminRegistration/AdminLogin';
-import AdminProfile from './Pages/AdminRegistration/AdminProfile';
 import MainAdminLogin from './Pages/AdminRegistration/MainAdminLogin';
+import Contactus from './Pages/ViewCv/Contactus';
+import AdminProfile from './Pages/AdminRegistration/AdminProfile';
 
 
 function App() {
@@ -69,6 +70,14 @@ function App() {
                             </div>
                         }
                     />
+                     <Route
+                        path="/mainAdmin"
+                        element={
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
+                                <MainAdminLogin/>
+                            </div>
+                        }
+                    />
                     
                     <Route
                         path="/com-login"
@@ -94,8 +103,9 @@ function App() {
                                         <Route path="/quizupload" element={<QuizUpload />} />
                                         <Route path="/quizattempt" element={<QuizAttempt />} />
                                         <Route path="/candidates" element={<Candidates />} />
-                                        <Route path="/adminProfie" element={<AdminProfile />} />
-                                        <Route path="/mainAdmin" element={<MainAdminLogin />} />
+                                        <Route path="/adminPage" element={<AdminProfile/>} />
+                                        
+                                        <Route path="/ff" element={<Contactus/>} />
                                         
                                         
                                     </Routes>
