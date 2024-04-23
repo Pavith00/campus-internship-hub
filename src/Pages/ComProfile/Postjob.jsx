@@ -28,37 +28,41 @@ function Postjob() {
     fetchCompany();
   }, []); // Empty dependency array to ensure the effect runs only once
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      // Send the job details along with the company name to the backend
-      const response = await axios.post("http://localhost:8080/job/post", {
-        company: company,
-        path: path,
-        title: title,
-        description: description,
-        skills: skills,
-        location: location
-      });
-      console.log(response.data);
-  
-      // Check if the job was posted successfully
-      if (response.data === "Job saved successfully") {
-        alert("Job posted successfully");
-        // Reset form fields after successful posting
-        setPath("");
-        setTitle("");
-        setDescription("");
-        setSkills("");
-        setLocation("");
-      } else {
-        alert("Job already exists with the same title");
-      }
-    } catch (error) {
-      console.error("Error posting job:", error);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    // Send the job details along with the company name to the backend
+    const response = await axios.post("http://localhost:8080/job/post", {
+      company: company,
+      path: path,
+      title: title,
+      description: description,
+      skills: skills,
+      location: location
+    });
+    console.log(response.data);
+    //alert("Job saved successfully");
+
+    // Check if the job was posted successfully
+    if (response.status >= 200 && response.status < 300) {
+      alert("Job posted successfully");
+      // Reset form fields after successful posting
+      setPath("");
+      setTitle("");
+      setDescription("");
+      setSkills("");
+      setLocation("");
+    } else if (response.data === "Job already exists with the same title") {
+      alert("Job already exists with the same title");
+    } else {
       alert("An error occurred while posting job");
     }
-  };
+  } catch (error) {
+    console.error("Error posting job:", error);
+    alert("An error occurred while posting job");
+  }
+};
+
   
 
   const handleLogout = () => {
@@ -120,9 +124,13 @@ function Postjob() {
                 <label for="industrySelect" class="form-label">Industry</label>
                 <select class="form-select cl" id="industrySelect" aria-label="Select Industry" value={path} onChange={(e) => setPath(e.target.value)} required>
                   <option selected >Choose the Industry</option>
-                  <option value="IT">IT</option>
-                  <option value="Finance">Finance</option>
-                  <option value="Marketing">Marketing</option>
+                  <option>Software Development</option>
+                  <option>Information Technology (IT) Services</option>
+                  <option>Data Science and Analytics</option>
+                  <option>Cloud Computing</option>
+                  <option>Database Administration</option>
+                  <option>DevOps</option>
+                  <option>Quality Assurance (QA) and TestingUI/UX Design</option>
                 </select>
               </div>
               <div class="mb-3">

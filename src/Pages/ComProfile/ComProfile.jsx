@@ -155,7 +155,7 @@ function ComProfile() {
           <div className="card-body">
             <p><b>First Name: </b>{user?.firstName}</p>
             <p><b>Last Name: </b>{user?.lastName}</p>
-            <p><b>Email: </b>{user?.email}</p>
+            <p><b>Personal Email: </b>{user?.personalEmail}</p>
           </div>
         </div>
 
@@ -163,6 +163,8 @@ function ComProfile() {
         <div className="card">
           <div className="card-body">
             <p><b>Company Name: </b>{company?.companyName}</p>
+            <p><b>Email: </b>{company?.email}</p>
+            <p><b>Address: </b>{company?.address}</p>
             <p><b>Industry: </b>{company?.industry}</p>
             <p><b>Website: </b>{company?.website}</p>
             <p><b>Phone Number: </b>{company?.phoneNumber}</p>

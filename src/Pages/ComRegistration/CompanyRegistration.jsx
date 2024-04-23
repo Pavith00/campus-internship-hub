@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 function CompanyRegistration() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [personalEmail, setPersonalEmail] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [industry, setIndustry] = useState("");
   const [description, setDescription] = useState("");
@@ -15,14 +17,30 @@ function CompanyRegistration() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  // Regular expressions for email and phone number validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\d{10}$/;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    /****update */
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+    if (!phoneRegex.test(phoneNumber)) {
+      alert("Please enter a valid phone number (10 digits only)");
+      return;
+    }
+    /***** */
     try {
       const response = await axios.post("http://localhost:8080/company/add", {
         firstName: firstName,
         lastName: lastName,
+        personalEmail:personalEmail,
         companyName: companyName,
         email: email,
+        address:address,
         phoneNumber: phoneNumber,
         industry: industry,
         description: description,
@@ -38,8 +56,10 @@ function CompanyRegistration() {
         // Reset form fields after successful registration
         setFirstName("");
         setLastName("");
+        setPersonalEmail("");
         setCompanyName("");
         setEmail("");
+        setAddress("");
         setPhoneNumber("");
         setIndustry("");
         setDescription("");
@@ -70,6 +90,11 @@ function CompanyRegistration() {
         </div>
 
         <div className="input-box">
+          <label>Persnal Email Address</label>
+          <input type="email" placeholder="Enter personal email address" value={personalEmail} onChange={(e) => setPersonalEmail(e.target.value)} required />
+        </div>
+
+        <div className="input-box">
           <label>Company Name</label>
           <input type="text" placeholder="Enter company name" value={companyName} onChange={(e) => setCompanyName(e.target.value)} required />
         </div>
@@ -77,6 +102,11 @@ function CompanyRegistration() {
         <div className="input-box">
           <label>Email Address</label>
           <input type="email" placeholder="Enter email address" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        </div>
+
+        <div className="input-box">
+          <label>Address</label>
+          <input type="text" placeholder="Enter address" value={address} onChange={(e) => setAddress(e.target.value)} required />
         </div>
 
         <div className="input-box">
@@ -89,11 +119,13 @@ function CompanyRegistration() {
           <div className="select-box">
           <select value={industry} onChange={(e) => setIndustry(e.target.value)} required>
             <option hidden>Select industry</option>
-            <option>IT industry</option>
-            <option>Finance</option>
-            <option>Banking</option>
-            <option>Software Engineering</option>
-            <option>Marketing</option>
+            <option>Software Development</option>
+                  <option>Information Technology (IT) Services</option>
+                  <option>Data Science and Analytics</option>
+                  <option>Cloud Computing</option>
+                  <option>Database Administration</option>
+                  <option>DevOps</option>
+                  <option>Quality Assurance (QA) and TestingUI/UX Design</option>
           </select>
         </div>
 

@@ -22,9 +22,24 @@ function CreateAccount() {
   const [degree, setDegree] = useState("");
   const [department, setDepartment] = useState("");
 
+   // Regular expressions for email and phone number validation
+   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+   const phoneRegex = /^\d{10}$/;
+ 
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    /****update */
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+    if (!phoneRegex.test(phone)) {
+      alert("Please enter a valid phone number (10 digits only)");
+      return;
+    }
+    /***** */
     try {
       const response = await axios.post("http://localhost:8080/student/add", {
         fname: fname,
