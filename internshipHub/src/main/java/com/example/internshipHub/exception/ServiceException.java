@@ -6,5 +6,6 @@ public class ServiceException extends RuntimeException {
     }
 
     public ServiceException(String message) {
+        super(message); // Call the superclass constructor with the message parameter
     }
 }

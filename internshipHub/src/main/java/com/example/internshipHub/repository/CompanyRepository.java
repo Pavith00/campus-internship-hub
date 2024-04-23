@@ -11,4 +11,6 @@ public interface CompanyRepository extends MongoRepository<Company, String> {
     boolean existsByUsername(String username);
 
     String deleteByUsername(String username);
+
+    Company findByCompanyName(String companyName);
 }

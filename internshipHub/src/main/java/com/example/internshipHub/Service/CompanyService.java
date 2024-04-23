@@ -17,7 +17,7 @@ public class CompanyService {
     private CompanyRepository companyRepository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder; // Autowire the PasswordEncoder bean
 
     public List<Company> getAllCompanies() {
         try {
@@ -39,6 +39,8 @@ public class CompanyService {
         try {
             if (!companyRepository.existsByUsername(company.getUsername().trim())) {
                 company.setUsername(company.getUsername().trim());
+                // Hash the password before saving
+                company.setPassword(passwordEncoder.encode(company.getPassword()));
                 companyRepository.save(company);
                 return "Company " + company.getUsername() + " Saved Successfully";
             } else {
@@ -78,10 +80,14 @@ public class CompanyService {
 
     public boolean login(String username, String password) {
         Company company = companyRepository.findByUsername(username);
-        if (company != null && company.getPassword().equals(password)) {
+        if (company != null && passwordEncoder.matches(password, company.getPassword())) {
             return true;
         } else {
             return false;
         }
+    }
+
+    public Company getCompanyByName(String companyName) {
+        return companyRepository.findByCompanyName(companyName);
     }
 }

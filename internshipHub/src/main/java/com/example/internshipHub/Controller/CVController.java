@@ -1,7 +1,10 @@
 package com.example.internshipHub.Controller;
 
+import com.example.internshipHub.Service.CompanyService;
+import com.example.internshipHub.Service.EmailService;
 import com.example.internshipHub.model.CV;
 import com.example.internshipHub.Service.CVService;
+import com.example.internshipHub.model.Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,22 +20,49 @@ public class CVController {
     @Autowired
     private CVService cvService;
 
+    @Autowired
+    private CompanyService companyService;
+
+    @Autowired
+    private EmailService emailService; // Inject the email service
 
     @PostMapping("/upload")
     public ResponseEntity<CV> uploadCV(@RequestParam("file") MultipartFile file,
                                        @RequestParam("firstName") String firstName,
-                                       @RequestParam("email") String email,
+                                       @RequestParam("studentEmail") String studentEmail,
                                        @RequestParam("degreeProgram") String degreeProgram,
                                        @RequestParam("shortDescription") String shortDescription,
                                        @RequestParam("jobTitle") String jobTitle,
                                        @RequestParam("companyName") String companyName) {
         try {
-            CV uploadedCV = cvService.uploadCV(file, firstName, email, degreeProgram, shortDescription, jobTitle, companyName);
-            return ResponseEntity.status(HttpStatus.CREATED).body(uploadedCV);
+            // Upload CV
+            CV uploadedCV = cvService.uploadCV(file, firstName, studentEmail, degreeProgram, shortDescription, jobTitle, companyName);
+
+            // Retrieve company email dynamically
+            Company company = companyService.getCompanyByName(companyName);
+            if (company != null) {
+                String companyEmail = company.getEmail();
+
+                // Send email notification to the company
+                String subject = "New CV Uploaded";
+                String message = "A new CV has been uploaded by " + firstName + ". Please log in to view the CV.";
+                emailService.sendEmail(companyEmail, subject, message, studentEmail); // Set studentEmail as reply-to address
+
+                return ResponseEntity.status(HttpStatus.CREATED).body(uploadedCV);
+            } else {
+                // Company not found
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+
+
+    // Other methods remain unchanged
+
+
 
     @GetMapping("/{id}")
     public ResponseEntity<byte[]> downloadCV(@PathVariable String id) {
