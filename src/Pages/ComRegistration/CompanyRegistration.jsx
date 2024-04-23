@@ -77,7 +77,7 @@ function CompanyRegistration() {
     <section className="container" style={{backgroundColor:'white', width:'600px'}}>  
       <center><header className='RegHead'>Company Registration Form</header></center>
       <form className="form" onSubmit={handleSubmit}>
-        <center> <p className='regSub'>Company Information</p></center>
+        <center> <p className='regSub'>Personal Information</p></center>
 
         <div className="input-box">
           <label >First Name</label>
@@ -90,9 +90,11 @@ function CompanyRegistration() {
         </div>
 
         <div className="input-box">
-          <label>Persnal Email Address</label>
+          <label>Personal Email Address</label>
           <input type="email" placeholder="Enter personal email address" value={personalEmail} onChange={(e) => setPersonalEmail(e.target.value)} required />
         </div>
+
+        <center> <p className='regSub'>Company Information</p></center>
 
         <div className="input-box">
           <label>Company Name</label>
@@ -142,10 +144,7 @@ function CompanyRegistration() {
         </div>
 
         <div className="column">
-          <div className="input-box">
-            <label>Username</label>
-            <input type="text" placeholder="Enter Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
-          </div>
+          
 
           <div className="input-box">
             <label>Password</label>

@@ -151,7 +151,7 @@ ul.job-list {
 }
 
 ul.job-list > li.job-preview {
-	background: rgb(210, 212, 219);
+	background: rgb(186, 188, 194);
 	border: 1px solid transparent;
 	-webkit-border-radius: 0.4rem;
 	-moz-border-radius: 0.4rem;

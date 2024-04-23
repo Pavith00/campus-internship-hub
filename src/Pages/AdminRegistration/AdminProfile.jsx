@@ -91,9 +91,9 @@ function AdminProfile() {
         <div className='buttons'>
           <div className="nav flex-column nav-pills me-3" id="v-pills-tab">
           <Link to="/quizupload" >
-            <button className="btn btn-outline-secondary b" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Quiz Upload</button><br />
+            <button className="btn btn-outline-secondary b" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Quiz Upload</button><br /><br></br>
             </Link>
-            <Link to="/fss" >
+            <Link to="/addvideos" >
             <button className="btn btn-outline-secondary b" data-bs-target="#jobByPath" type="button" role="tab" aria-controls="v-pills-jobByPath" aria-selected="false" onClick={scrollToSection}>Mentor</button><br />
             </Link>
             

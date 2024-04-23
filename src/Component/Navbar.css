@@ -1,5 +1,5 @@
 .name {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     padding-top: 20px;
     color: #e7e7e8;
@@ -13,8 +13,9 @@
     z-index: 1000; 
     position: fixed;
     height: 70px;
-    background-color: #c3c4d8!important;
+    background-color: #1c2052!important;
     background-size: cover;
+    padding-bottom: 90px;
     
     /* Adjust the z-index value */
     /* Your other navbar styles */
@@ -25,7 +26,7 @@
     transition: all 0.3s ease; /* Smooth transition */
     display: inline-block; /* Needed for transform to work */
     padding: 5px 15px;
-    color: #545069 !important;
+    color: #a9a6b6 !important;
     border-color:transparent;
 }
 

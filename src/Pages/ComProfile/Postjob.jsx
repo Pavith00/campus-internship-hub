@@ -85,22 +85,23 @@ const handleSubmit = async (e) => {
         <div className='buttons'>
           <div class="nav flex-column nav-pills me-3" id="v-pills-tab" >
             <Link to="/com-profile">
-              <button class="btn btn-outline-secondary b" id="v-pills-home-tab" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Profile</button><br />
+              <button class="btn btn-outline-secondary b" id="v-pills-home-tab" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Profile</button><br /><br></br>
             </Link>
             <Link to="/postjob">
-              <button class="btn btn-outline-secondary b" id="v-pills-postJob-tab" data-bs-target="#postJob" type="button" role="tab" aria-controls="v-pills-jobByPath" aria-selected="false" onClick={scrollToSection}>Post a Job</button><br />
+              <button class="btn btn-outline-secondary b" id="v-pills-postJob-tab" data-bs-target="#postJob" type="button" role="tab" aria-controls="v-pills-jobByPath" aria-selected="false" onClick={scrollToSection}>Post a Job</button><br /><br></br>
             </Link>
             <Link to="/">
               <button class="btn btn-outline-secondary b" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Jobs</button>
-            </Link>
+            </Link><br></br>
             <Link to="/candidates">
-              <button className="btn btn-outline-secondary b" data-bs-target="#candidates" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Posted Jobs</button>
+              <button className="btn btn-outline-secondary b" data-bs-target="#candidates" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Posted Jobs</button><br></br>
             </Link>
             {/* Other buttons */}
           </div>
         </div>
         <hr align="center" />
         <center>
+          <br></br>
           <button onClick={handleLogout} type="button" class="btn btn-outline-danger">
             Logout
           </button>

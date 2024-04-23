@@ -53,7 +53,7 @@ function Profile() {
 
   return (
     <div>
-      <br></br><br></br>
+      <br></br><br></br><br></br><br></br>
       <div className="title">
         <h2>
           {user && (
@@ -75,8 +75,17 @@ function Profile() {
             <Link to="/" >
               <button class="btn btn-outline-secondary b" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Jobs</button></Link><br />
               <Link to="/quizattempt" >
-              <button class="btn btn-outline-secondary b" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Skill Assesment</button></Link>
-            
+              <button class="btn btn-outline-secondary b" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Skill Assesment</button></Link><br />
+              <Link to="/videos" >
+              <button class="btn btn-outline-secondary b" id="v-pills-jobs-tab" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Mentor Video</button></Link><br></br>
+              <Link
+                    to={{
+                      pathname: "/updateAcc",
+                      state: { userData: user } // Pass user data as state
+                    }}
+                  >
+                    <button className="btn btn-outline-secondary b">Update</button>
+            </Link>
             {/* Other buttons */}
 
           </div>

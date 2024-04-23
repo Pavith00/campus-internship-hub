@@ -1,0 +1,43 @@
+.admin-dashboard {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color:#10103b;
+  }
+  
+  .add-video {
+    margin-bottom: 20px;
+  }
+
+  .video{
+    background-color: rgb(174, 176, 179);
+
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .video-list {
+    max-width: 600px;
+  }
+  
+  .video-item {
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .video-link {
+    color: blue;
+    cursor: pointer;
+  }
+  

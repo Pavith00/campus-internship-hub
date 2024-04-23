@@ -29,12 +29,9 @@ function Navbar() {
                         <b>Admin</b>
                     </Link>
                 )}
-                {location.pathname !== '/' && location.pathname !== '/adminPage' && location.pathname !== '/quizupload' && (
-                    <Link to="/" className="custom-button">
-                        <b>job</b>
-                    </Link>
-                )}
-                {location.pathname !== '/Com-login' && location.pathname !== '/adminPage' && location.pathname !== '/quizupload' && ( /* Add this condition for the "Post a Job" button */
+                
+                
+                {location.pathname == '/' && ( /* Add this condition for the "Post a Job" button */
                     <Link to="/Com-login" className="custom-button">
                         <b>Post a Job</b>
                     </Link>

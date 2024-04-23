@@ -45,11 +45,9 @@ function CVUpload() {
         setFile(event.target.files[0]);
     };
 
-    
-
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (!file || !name || !email || !degree || !description || !userJobTitle || !companyName) {
+        if (!file || !name || !email || !degree || !description || !userJobTitle) {
             console.error('Please fill in all fields.');
             return;
         }
@@ -63,7 +61,7 @@ function CVUpload() {
         formData.append('file', file);
 
         try {
-            // Upload CV and trigger email notification to the company
+            // Upload CV
             const response = await axios.post('http://localhost:8080/cv/upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -96,13 +94,11 @@ function CVUpload() {
         } catch (error) {
             console.error('Error downloading CV:', error);
         }
-
     };
 
     if (loading || !job) {
         return <div>Loading job details...</div>;
     }
-
 
     return (
         <center>
@@ -112,7 +108,7 @@ function CVUpload() {
                     <div class="CVcard-body">
                         <h2 className='color'>{job.title}</h2>
                         <p>Company: {job.company}</p>
-                        <p>Description: {job.description}</p>
+                        <p>job Description: {job.longdescription}</p>
                         <p>Skills: {job.skills}</p>
 
                         <form onSubmit={handleSubmit}>
@@ -128,65 +124,75 @@ function CVUpload() {
                                     required
                                 />
                             </div>
+                            {/* Add similar inputs for other fields */}
                             <div className="col-sm-6">
-                                <label htmlFor="emailInput" className="form-label">Email</label>
-                                <input 
-                                    type="email" 
-                                    className="form-control" 
-                                    id="emailInput" 
-                                    placeholder="Enter your email address" 
-                                    value={email} 
-                                    onChange={(e) => setEmail(e.target.value)} 
-                                    required 
-                                />
-                            </div>
-                            <div className="col-sm-6">
-                                <label htmlFor="degreeProgramInput" className="form-label">Degree Program</label>
-                                <input 
-                                    type="text" 
-                                    className="form-control" 
-                                    id="degreeProgramInput" 
-                                    placeholder="Enter your degree program" 
-                                    value={degree} 
-                                    onChange={(e) => setDegreeProgram(e.target.value)} 
-                                    required 
-                                />
-                            </div>
-                            <div className="col-sm-6">
-                                <label htmlFor="shortDescriptionInput" className="form-label">About you</label>
-                                <textarea 
-                                    className="form-control" 
-                                    id="shortDescriptionInput" 
-                                    placeholder="Enter a short description about yourself" 
-                                    value={description} 
-                                    onChange={(e) => setShortDescription(e.target.value)} 
-                                    required 
-                                />
-                            </div>
-                            <div className="col-sm-6">
-                                <label htmlFor="companyNameInput" className="form-label">Company Name</label>
-                                <input 
-                                    type="text" 
-                                    className="form-control" 
-                                    id="companyNameInput" 
-                                    placeholder="Enter your company name" 
-                                    value={companyName} 
-                                    onChange={(e) => setCompanyName(e.target.value)} 
-                                    required 
-                                />
-                            </div>
-                            <div className="col-sm-6">
-                                <label htmlFor="jobTitleInput" className="form-label">Job Title</label>
-                                <input 
-                                    type="text" 
-                                    className="form-control" 
-                                    id="jobTitleInput" 
-                                    placeholder="Enter your job title" 
-                                    value={userJobTitle} 
-                                    onChange={(e) => setUserJobTitle(e.target.value)} 
-                                    required 
-                                />
-                            </div>
+                            <label htmlFor="emailInput" className="form-label">Email</label>
+                            <input 
+                            type="email" 
+                            className="form-control" 
+                            id="emailInput" 
+                            placeholder="Enter your email address" 
+                            value={email} 
+                            onChange={(e) => setEmail(e.target.value)} 
+                            required 
+                            />
+                        </div>
+                        <div className="col-sm-6">
+                            <label htmlFor="degreeProgramInput" className="form-label">Degree Program</label>
+                            <input 
+                            type="text" 
+                            className="form-control" 
+                            id="degreeProgramInput" 
+                            placeholder="Enter your degree program" 
+                            value={degree} 
+                            onChange={(e) => setDegreeProgram(e.target.value)} 
+                            required 
+                            />
+                        </div>
+                        <div className="col-sm-6">
+                            <label htmlFor="shortDescriptionInput" className="form-label">About you</label>
+                            <textarea 
+                            className="form-control" 
+                            id="shortDescriptionInput" 
+                            placeholder="Enter a short description about yourself" 
+                            value={description} 
+                            onChange={(e) => setShortDescription(e.target.value)} 
+                            required 
+                            />
+                        </div>
+
+                        <div className="col-sm-6">
+                            <label htmlFor="companyNameInput" className="form-label">Company Name</label>
+                            <input 
+                                type="text" 
+                                className="form-control" 
+                                id="companyNameInput" 
+                                placeholder="Enter your company name" 
+                                value={companyName} 
+                                onChange={(e) => setCompanyName(e.target.value)} 
+                                required 
+                            />
+                        </div>
+
+                        {/* Input for job title */}
+                        <div className="col-sm-6">
+                            <label htmlFor="jobTitleInput" className="form-label">Job Title</label>
+                            <input 
+                            type="text" 
+                            className="form-control" 
+                            id="jobTitleInput" 
+                            placeholder="Enter your job title" 
+                            value={userJobTitle} 
+                            onChange={(e) => setUserJobTitle(e.target.value)} 
+                            required 
+                            />
+                        </div>
+                       
+                       
+
+                        <h2>Upload CV</h2>
+                        <p>Rename your CV with your name and username ex:John-username</p>
+                        
                             <div class="col-sm-6">
                                 <input type="file" onChange={handleFileChange} class="form-control transparent-file-input" />
                             </div>

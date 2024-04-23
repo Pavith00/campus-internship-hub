@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './QuizUpload.css'
+import './QuizUpload.css';
 
 function QuizUpload() {
   const [quizTitle, setQuizTitle] = useState("");
@@ -80,30 +79,28 @@ function QuizUpload() {
       alert("An error occurred while uploading quiz");
     }
   };
-  const scrollToSection = (e) => {
-    const targetId = e.target.dataset.bsTarget;
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+
   const handleLogout = () => {
     localStorage.removeItem('username');
     navigate('/adminLogin');
   };
 
   return (
+    
     <section className="quiz-container">
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <div className="sidenav">
         <div className='buttons'>
           <div className="nav flex-column nav-pills me-3" id="v-pills-tab">
-          <Link to="/quizupload" >
-            <button className="btn btn-outline-secondary b" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Quiz Upload</button><br />
+            <Link to="/quizupload">
+              <button className="btn btn-outline-secondary b" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Quiz Upload</button><br /><br></br>
             </Link>
-            <Link to="/fss" >
-            <button className="btn btn-outline-secondary b" data-bs-target="#jobByPath" type="button" role="tab" aria-controls="v-pills-jobByPath" aria-selected="false" onClick={scrollToSection}>Mentor</button><br />
+            <Link to="/addvideos">
+              <button className="btn btn-outline-secondary b" data-bs-target="#jobByPath" type="button" role="tab" aria-controls="v-pills-jobByPath" aria-selected="false">Mentor</button><br />
             </Link>
-            
           </div>
         </div>
         <hr align="center" />
@@ -111,28 +108,29 @@ function QuizUpload() {
           <button onClick={handleLogout} type="button" className="btn btn-outline-danger">Logout</button>
         </center>
       </div>
-      <br></br><br></br>
-      <h1>Upload Quiz</h1>
-      <form onSubmit={uploadQuiz}>
-        <div className="input-box">
-          <label>Quiz Title</label>
-          <input type="text" placeholder="Enter Quiz Title" value={quizTitle} onChange={(e) => setQuizTitle(e.target.value)} required />
-        </div>
-        {questions.map((question, questionIndex) => (
-          <div key={questionIndex}>
-            <input type="text" placeholder={`Question ${questionIndex + 1}`} value={question.question} onChange={(e) => handleQuestionChange(questionIndex, e)} required />
-            {question.options.map((option, optionIndex) => (
-              <div key={optionIndex}>
-                <input type="text" placeholder={`Option ${optionIndex + 1}`} value={option} onChange={(e) => handleOptionChange(questionIndex, optionIndex, e)} required />
-                <input type="radio" name={`correctAnswer-${questionIndex}`} value={optionIndex} checked={question.correctAnswer === optionIndex} onChange={(e) => handleCorrectAnswerChange(questionIndex, e)} />
-                <label>Correct Answer</label>
-              </div>
-            ))}
+      <div className="main-content">
+        <h1>Upload Quiz</h1>
+        <form onSubmit={uploadQuiz}>
+          <div className="input-box">
+            <label>Quiz Title</label>
+            <input type="text" className="form-control" placeholder="Enter Quiz Title" value={quizTitle} onChange={(e) => setQuizTitle(e.target.value)} required />
           </div>
-        ))}
-        <button type="button" onClick={addQuestion}>Add Question</button>
-        <button type="submit">Upload Quiz</button>
-      </form>
+          {questions.map((question, questionIndex) => (
+            <div key={questionIndex}>
+              <input type="text" className="form-control" placeholder={`Question ${questionIndex + 1}`} value={question.question} onChange={(e) => handleQuestionChange(questionIndex, e)} required />
+              {question.options.map((option, optionIndex) => (
+                <div key={optionIndex}>
+                  <input type="text" className="form-control" placeholder={`Option ${optionIndex + 1}`} value={option} onChange={(e) => handleOptionChange(questionIndex, optionIndex, e)} required />
+                  <input type="radio" name={`correctAnswer-${questionIndex}`} value={optionIndex} checked={question.correctAnswer === optionIndex} onChange={(e) => handleCorrectAnswerChange(questionIndex, e)} />
+                  <label>Correct Answer</label>
+                </div>
+              ))}
+            </div>
+          ))}
+          <button type="button" className="btn btn-primary mt-3 mb-3" onClick={addQuestion}>Add Question</button>
+          <button type="submit" className="btn btn-success">Upload Quiz</button>
+        </form>
+      </div>
 
       {selectedQuiz && (
         <div className="preview-section">
@@ -152,16 +150,22 @@ function QuizUpload() {
       )}
 
       <div className="quiz-list">
-        <br></br>
         <h2>Available Quizzes</h2>
-        <ul>
+        <div className="row">
           {quizzes.map((quiz, index) => (
-            <li key={index}>
-              <button onClick={() => handlePreview(quiz)}>{quiz.title}</button>
-              <button onClick={() => handleDeleteQuiz(quiz.title)}>Delete Quiz</button>
-            </li>
+            <div key={index} className="col-md-4 mb-3">
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">{quiz.title}</h5>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <button onClick={() => handlePreview(quiz)} className="btn btn-primary">Preview</button>
+                    <button onClick={() => handleDeleteQuiz(quiz.title)} className="btn btn-danger">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

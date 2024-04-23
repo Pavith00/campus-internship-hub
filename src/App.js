@@ -22,6 +22,11 @@ import AdminLogin from './Pages/AdminRegistration/AdminLogin';
 import MainAdminLogin from './Pages/AdminRegistration/MainAdminLogin';
 import Contactus from './Pages/ViewCv/Contactus';
 import AdminProfile from './Pages/AdminRegistration/AdminProfile';
+import AvailableVideosPage from './Pages/Videos/AvailableVideosPage';
+import AdminDashboard from './Pages/Videos/AdminDashboard';
+import Home from './Pages/Home/Home';
+import UpdateAcc from './Pages/Registration/UpdateAcc';
+import UpdateCompany from './Pages/ComRegistration/UpdateCompany';
 
 
 function App() {
@@ -35,6 +40,14 @@ function App() {
                         element={
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
                                 <AdminForm/>
+                            </div>
+                        }
+                    />
+                    <Route
+                        path="/updateAcc"
+                        element={
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
+                                <UpdateAcc/>
                             </div>
                         }
                     />
@@ -78,6 +91,14 @@ function App() {
                             </div>
                         }
                     />
+                    <Route
+                        path="/updateCompany"
+                        element={
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
+                                <UpdateCompany/>
+                            </div>
+                        }
+                    />
                     
                     <Route
                         path="/com-login"
@@ -104,6 +125,9 @@ function App() {
                                         <Route path="/quizattempt" element={<QuizAttempt />} />
                                         <Route path="/candidates" element={<Candidates />} />
                                         <Route path="/adminPage" element={<AdminProfile/>} />
+                                        <Route path="/videos" element={<AvailableVideosPage/>} />
+                                        <Route path="/addvideos" element={<AdminDashboard/>} />
+                                       
                                         
                                         <Route path="/ff" element={<Contactus/>} />
                                         

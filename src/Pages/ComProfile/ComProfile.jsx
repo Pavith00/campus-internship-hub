@@ -17,9 +17,9 @@ function ComProfile() {
   const form = useRef(null);
   const [errorMessage, setErrorMessage] = useState('');
 
-  
 
-  
+
+
 
   useEffect(() => {
     const username = localStorage.getItem('username');
@@ -70,26 +70,25 @@ function ComProfile() {
     console.log("Emailss")
 
     var templateParams = {
-        name: 'James',
-        email: ' ramanayakepavithra2000@gmail.com',
-        message: 'Check this out!',
+      name: 'James',
+      email: 'ramanayakepavithra2000@gmail.com',
+      message: 'Check this out!',
     };
-    emailjs.send('service_93clbjx', 'template_yzh8lgg', templateParams)
-        .then(
-            () => {
-                console.log('SUCCESS!');
-                form.current.reset();
-                setErrorMessage('');
+    emailjs.send('service_93clbjx', 'template_yzh8lgg', templateParams, 'p3R1yhca-pdsh7Bee')
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          form.current.reset();
+          setErrorMessage('');
 
-            },
-            (error) => {
-                console.log('FAILED...', error.text);
-            },
-        );
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
 
 
-};
-
+  };
   const scrollToSection = (e) => {
     const targetId = e.target.dataset.bsTarget;
     const targetElement = document.querySelector(targetId);
@@ -112,7 +111,7 @@ function ComProfile() {
 
   return (
     <div>
-      <br></br><br></br>
+      <br></br><br></br><br></br><br></br>
       <div className="title">
         <h2>
           {user && (
@@ -126,18 +125,26 @@ function ComProfile() {
 
       <div className="sidenav">
         <div className='buttons'>
-          <div className="nav flex-column nav-pills me-3" id="v-pills-tab">
-          <Link to="/com-profile" >
-            <button className="btn btn-outline-secondary b" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Profile</button><br />
+          <div className="nav flex-column nav-pills me-3" id="v-pills-tab"><br />
+            <Link to="/com-profile" >
+              <button className="btn btn-outline-secondary b" data-bs-target="#home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={scrollToSection}>Profile</button><br /><br />
             </Link>
             <Link to="/postjob" >
-            <button className="btn btn-outline-secondary b" data-bs-target="#jobByPath" type="button" role="tab" aria-controls="v-pills-jobByPath" aria-selected="false" onClick={scrollToSection}>Post a Job</button><br />
+              <button className="btn btn-outline-secondary b" data-bs-target="#jobByPath" type="button" role="tab" aria-controls="v-pills-jobByPath" aria-selected="false" onClick={scrollToSection}>Post a Job</button><br /><br />
             </Link>
             <Link to="/">
-              <button className="btn btn-outline-secondary b" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Jobs</button>
+              <button className="btn btn-outline-secondary b" data-bs-target="#jobs" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Jobs</button><br /><br />
             </Link>
             <Link to="/candidates">
-              <button className="btn btn-outline-secondary b" data-bs-target="#candidates" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Posted Jobs</button>
+              <button className="btn btn-outline-secondary b" data-bs-target="#candidates" type="button" role="tab" aria-controls="v-pills-jobs" aria-selected="false" onClick={scrollToSection}>Posted Jobs</button><br></br>
+            </Link>
+            <Link
+              to={{
+                pathname: "/updateCompany",
+                state: { userData: user } // Pass user data as state
+              }}
+            ><br></br>
+              <button className="btn btn-outline-secondary b">Update</button>
             </Link>
           </div>
         </div>
@@ -172,29 +179,31 @@ function ComProfile() {
           </div>
         </div>
 
-        <h2>Candidates</h2>
-     
-        <div className="card">
+
+        <div className="container">
+      <h2>Candidates</h2>
+      {Object.entries(groupCandidatesByJobTitle(candidates)).map(([jobTitle, candidatesForJob]) => (
+        <div key={jobTitle} className="card mb-3">
           <div className="card-body">
-            {Object.entries(groupCandidatesByJobTitle(candidates)).map(([jobTitle, candidatesForJob]) => (
-              <div key={jobTitle}>
-                <h3>Job title : {jobTitle}</h3>
-                {candidatesForJob.map(candidate => (
-                  <div key={candidate.id}>
-                    <p><b>First Name: </b>{candidate.firstName}</p>
-                    <p><b>Email: </b>{candidate.email}</p>
-                    <p><b>Degree Program: </b>{candidate.degreeProgram}</p>
-                    <p><b>Short Description: </b>{candidate.shortDescription}</p>
-                    {/* Add download button for CV */}
-                    <a href={`http://localhost:8080/cv/${candidate.id}`} download>Download CV</a>
-                    <Button onClick={sendEmail} label="Send Message" />
-                  </div>
-                ))}
+            <h3 className="card-title">Job Title: {jobTitle}</h3>
+            {candidatesForJob.map(candidate => (
+              <div key={candidate.id} className="card mb-3">
+                <div className="card-body">
+                  <p><b>First Name:</b> {candidate.firstName}</p>
+                  <p><b>Email:</b> {candidate.email}</p>
+                  <p><b>Degree Program:</b> {candidate.degreeProgram}</p>
+                  <p><b>Short Description:</b> {candidate.shortDescription}</p>
+                  <Button type="primary" href={`http://localhost:8080/cv/${candidate.id}`} download>Download CV</Button>
+                  <Button type="primary" onClick={sendEmail} className="ml-2">Send Message</Button>
+                </div>
               </div>
             ))}
           </div>
         </div>
-        
+      ))}
+    </div>
+
+
       </div>
     </div>
   );

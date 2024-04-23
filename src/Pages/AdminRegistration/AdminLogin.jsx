@@ -82,11 +82,7 @@ function AdminLogin() {
           <button title="Sign In" type="submit" className="sign-in_btn">
             <span>Sign In</span>
           </button>
-          <div>
-            
-            <p className="link">Don't have an account?<Link to={'/Reg'}><a href="" className="link"> Sign up now</a> </Link></p>
-           
-          </div>
+          
           
           
            
