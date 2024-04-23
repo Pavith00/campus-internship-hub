@@ -53,9 +53,23 @@ public class CompanyService {
 
     public String updateCompany(String username, Company updatedCompany) {
         try {
-            if (companyRepository.existsByUsername(username)) {
-                updatedCompany.setUsername(username);
-                companyRepository.save(updatedCompany);
+            Company existingCompany = companyRepository.findByUsername(username);
+            if (existingCompany != null) {
+                // Update fields
+                existingCompany.setFirstName(updatedCompany.getFirstName());
+                existingCompany.setLastName(updatedCompany.getLastName());
+                existingCompany.setPersonalEmail(updatedCompany.getPersonalEmail());
+                existingCompany.setCompanyName(updatedCompany.getCompanyName());
+                existingCompany.setEmail(updatedCompany.getEmail());
+                existingCompany.setAddress(updatedCompany.getAddress());
+                existingCompany.setPhoneNumber(updatedCompany.getPhoneNumber());
+                existingCompany.setIndustry(updatedCompany.getIndustry());
+                existingCompany.setDescription(updatedCompany.getDescription());
+                existingCompany.setWebsite(updatedCompany.getWebsite());
+
+                existingCompany.setPassword(updatedCompany.getPassword());
+                // Save the updated company
+                companyRepository.save(existingCompany);
                 return "Company updated successfully";
             } else {
                 throw new ServiceException("Company not found with username: " + username);
@@ -64,6 +78,7 @@ public class CompanyService {
             throw new ServiceException("Error occurred while updating a company", e);
         }
     }
+
 
     public String deleteCompany(String username) {
         try {

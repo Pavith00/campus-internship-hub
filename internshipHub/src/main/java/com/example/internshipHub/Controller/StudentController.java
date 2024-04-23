@@ -52,8 +52,8 @@ public class StudentController {
     }
 
     @PutMapping("/{username}")
-    public String updateStudent(@PathVariable String username, @RequestBody Student student) {
-        return studentService.updateStudent(username, student);
+    public String updateStudent(@PathVariable String username, @RequestBody Student updatedStudent) {
+        return studentService.updateStudent(username, updatedStudent);
     }
 
     @DeleteMapping("/{username}")

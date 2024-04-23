@@ -17,8 +17,10 @@ public class Company {
     private String id;
     private String firstName;
     private String lastName;
+    private String personalEmail;
     private String companyName;
     private String email;
+    private String address;
     private String phoneNumber;
     private String industry;
     private String description;

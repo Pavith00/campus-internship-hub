@@ -66,17 +66,34 @@ public class StudentService {
     }
 
 
-    public String updateStudent(String id, Student updatedStudent) {
+
+    public String updateStudent(String username, Student updatedStudent) {
         try {
-            if (this.studentRepository.existsById(id)) {
-                updatedStudent.setId(id);
-                this.studentRepository.save(updatedStudent);
+            Student existingStudent = studentRepository.findByUsername(username);
+            if (existingStudent != null) {
+                // Update fields
+                existingStudent.setFname(updatedStudent.getFname());
+                existingStudent.setLname(updatedStudent.getLname());
+                existingStudent.setPhone(updatedStudent.getPhone());
+                existingStudent.setEmail(updatedStudent.getEmail());
+                existingStudent.setGender(updatedStudent.getGender());
+                existingStudent.setAddress(updatedStudent.getAddress());
+                existingStudent.setUniversity(updatedStudent.getUniversity());
+                existingStudent.setGradOrUn(updatedStudent.getGradOrUn());
+                existingStudent.setYearThatGraduate(updatedStudent.getYearThatGraduate());
+                existingStudent.setBirthday(updatedStudent.getBirthday());
+                existingStudent.setPath(updatedStudent.getPath());
+                existingStudent.setDegree(updatedStudent.getDegree());
+                existingStudent.setDepartment(updatedStudent.getDepartment());
+                existingStudent.setDepartment(updatedStudent.getPassword());
+                // Save the updated student
+                studentRepository.save(existingStudent);
                 return "Student updated successfully";
             } else {
-                throw new ServiceException("Student not found with id: " + id);
+                throw new ServiceException("Student not found with username: " + username);
             }
-        } catch (Exception var4) {
-            throw new ServiceException("Error occurred while updating a student", var4);
+        } catch (Exception e) {
+            throw new ServiceException("Error occurred while updating a student", e);
         }
     }
 
