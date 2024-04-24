@@ -85,7 +85,7 @@ public class StudentService {
                 existingStudent.setPath(updatedStudent.getPath());
                 existingStudent.setDegree(updatedStudent.getDegree());
                 existingStudent.setDepartment(updatedStudent.getDepartment());
-                existingStudent.setDepartment(updatedStudent.getPassword());
+                existingStudent.setPassword(updatedStudent.getPassword());
                 // Save the updated student
                 studentRepository.save(existingStudent);
                 return "Student updated successfully";

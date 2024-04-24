@@ -59,4 +59,7 @@ public class QuizAttemptService {
 
         return quizScore; // Return the quiz score
     }
+    public List<QuizAttempt> getQuizAttemptsByStudentEmail(String studentEmail) {
+        return quizAttemptRepository.findByStudentEmail(studentEmail);
+    }
 }
