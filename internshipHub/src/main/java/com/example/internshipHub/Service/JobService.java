@@ -1,100 +1,116 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package com.example.internshipHub.Service;
 
 import com.example.internshipHub.exception.ServiceException;
 import com.example.internshipHub.model.Job;
+import com.example.internshipHub.repository.CVRepository;
 import com.example.internshipHub.repository.JobRepository;
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class JobService {
     @Autowired
     private JobRepository repository;
+    @Autowired
+    private CVRepository cvRepository;
 
+    public JobService() {
+    }
 
-    public List<Job> getAllJobs(){
+    public List<Job> getAllJobs() {
         try {
-            return repository.findAll();
-        } catch (Exception e) {
-            throw new ServiceException("Error occurred while fetching users", e);
+            return this.repository.findAll();
+        } catch (Exception var2) {
+            throw new ServiceException("Error occurred while fetching users", var2);
         }
     }
 
-    public Job getJob(String name){
-        try{
-            return repository.findByTitle(name);
-        } catch (Exception e){
-            throw new ServiceException("Error occurred while fetching specific user", e);
+    public Job getJob(String name) {
+        try {
+            return this.repository.findByTitle(name);
+        } catch (Exception var3) {
+            throw new ServiceException("Error occurred while fetching specific user", var3);
         }
     }
 
-
+    public Job getJobByIndustry(String name) {
+        try {
+            return this.repository.findByIndustryIgnoreCase(name);
+        } catch (Exception var3) {
+            throw new ServiceException("Error occurred while fetching job by industry", var3);
+        }
+    }
 
     public String addJob(Job job) {
         try {
-            // Check if a job with the same title and company already exists
-            if (repository.existsByTitleAndCompany(job.getTitle().trim(), job.getCompany().trim())) {
-                return "Job " + job.getTitle() + " by company " + job.getCompany() + " already exists";
+            if (!this.repository.existsByTitle(job.getTitle().trim())) {
+                this.repository.save(job);
+                return "User " + job.getTitle() + " Saved Successfully";
             } else {
-                repository.save(job);
-                return "Job " + job.getTitle() + " saved successfully";
+                return "Username " + job.getTitle() + " Already Exists";
             }
-        } catch (Exception e) {
-            throw new ServiceException("Error occurred while adding a job", e);
+        } catch (Exception var3) {
+            throw new ServiceException("Error occurred while adding a user", var3);
         }
     }
 
-    //TODO: Not Updating
-    //TODO: Remove Password updaing in update profile and introduce another
-    public String updateJob(Job jobRequest){
+    public String updateJob(Job jobRequest) {
         try {
-            if (repository.existsByTitle(jobRequest.getTitle())) {
-                Job existingJob = repository.findByTitle(jobRequest.getTitle());
-                if(jobRequest.getDescription() != null) {
+            if (this.repository.existsByTitle(jobRequest.getTitle())) {
+                Job existingJob = this.repository.findByTitle(jobRequest.getTitle());
+                if (jobRequest.getDescription() != null) {
                     existingJob.setDescription(jobRequest.getDescription());
                 }
 
                 return "Job " + jobRequest.getTitle() + " Updated successfully";
             } else {
-                return "Job " +jobRequest.getTitle() + " Does not Exist";
+                return "Job " + jobRequest.getTitle() + " Does not Exist";
             }
-        } catch (Exception e){
-            throw new ServiceException("Error occurred while updating a user", e);
+        } catch (Exception var3) {
+            throw new ServiceException("Error occurred while updating a user", var3);
         }
     }
 
-    public String deleteJob(String title){
+    public String deleteJob(String title) {
         try {
-            if(repository.existsByTitle(title)) {
-                repository.deleteByTitle(title);
+            if (this.repository.existsByTitle(title)) {
+                this.repository.deleteByTitle(title);
                 return title + " User Deleted Successfully";
-            }
-            else{
+            } else {
                 return title + " User Does not exists";
             }
-        } catch (Exception e){
-            throw new ServiceException("Error Occurred while Deleting User", e);
+        } catch (Exception var3) {
+            throw new ServiceException("Error Occurred while Deleting User", var3);
         }
     }
-
 
     public List<Job> getJobsByLocation(String location) {
         try {
-            return repository.findByLocation(location);
-        } catch (Exception e) {
-            throw new ServiceException("Error occurred while fetching jobs by location", e);
+            return this.repository.findByLocation(location);
+        } catch (Exception var3) {
+            throw new ServiceException("Error occurred while fetching jobs by location", var3);
         }
     }
 
     public List<Job> searchJobs(String query) {
         try {
-            // Search by title or location
-            return repository.findByTitleContainingIgnoreCaseOrLocationContainingIgnoreCase(query, query);
-        } catch (Exception e) {
-            throw new ServiceException("Error occurred while searching jobs", e);
+            return this.repository.findByTitleContainingIgnoreCaseOrLocationContainingIgnoreCase(query, query);
+        } catch (Exception var3) {
+            throw new ServiceException("Error occurred while searching jobs", var3);
+        }
+    }
+
+    public List<Job> getJobsByCompany(String company) {
+        try {
+            return this.repository.findByCompany(company);
+        } catch (Exception var3) {
+            throw new ServiceException("Error occurred while fetching jobs by company", var3);
         }
     }
 }

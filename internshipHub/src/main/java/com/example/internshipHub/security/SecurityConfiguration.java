@@ -23,6 +23,14 @@ public class SecurityConfiguration {
                         .requestMatchers(new AntPathRequestMatcher("/job/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/student/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/cv/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/quizzes/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/company/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/admin/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/admin/mentorship-videos/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/videos/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/admin/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/adminLogin/**")).permitAll()
+
                         .anyRequest().authenticated())
                 .httpBasic();
         return http.build();

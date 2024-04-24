@@ -1,44 +1,46 @@
-package com.example.internshipHub.Service;
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
 
+package com.example.internshipHub.Service;
 
 import com.example.internshipHub.exception.ServiceException;
 import com.example.internshipHub.model.Job;
 import com.example.internshipHub.model.Student;
-import com.example.internshipHub.model.User;
 import com.example.internshipHub.repository.JobRepository;
 import com.example.internshipHub.repository.StudentRepository;
+import java.util.Collections;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.List;
-
 @Service
 public class StudentService {
-
     @Autowired
     private StudentRepository studentRepository;
-
     @Autowired
     private JobRepository jobRepository;
-
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    public StudentService() {
+    }
+
     public List<Student> getAllStudents() {
         try {
-            return studentRepository.findAll();
-        } catch (Exception e) {
-            throw new ServiceException("Error occurred while fetching students", e);
+            return this.studentRepository.findAll();
+        } catch (Exception var2) {
+            throw new ServiceException("Error occurred while fetching students", var2);
         }
     }
 
-    public Student getStudent(String username){
-        try{
-            return studentRepository.findByUsername(username);
-        } catch (Exception e){
-            throw new ServiceException("Error occurred while fetching specific user", e);
+    public Student getStudent(String username) {
+        try {
+            return this.studentRepository.findByUsername(username);
+        } catch (Exception var3) {
+            throw new ServiceException("Error occurred while fetching specific user", var3);
         }
     }
 
@@ -47,7 +49,11 @@ public class StudentService {
             if(!studentRepository.existsByUsername(student.getUsername().trim())) {
                 // Remove leading and trailing whitespaces from the username
                 student.setUsername(student.getUsername().trim());
-                // Save the student without modifying the password
+                // Hash the password
+                student.setPassword(passwordEncoder.encode(student.getRawPassword()));
+                // Clear the raw password
+                student.setRawPassword(null);
+                // Save the student
                 studentRepository.save(student);
                 return "User " + student.getUsername() + " Saved Successfully";
             }
@@ -60,14 +66,31 @@ public class StudentService {
     }
 
 
-    public String updateStudent(String id, Student updatedStudent) {
+
+    public String updateStudent(String username, Student updatedStudent) {
         try {
-            if (studentRepository.existsById(id)) {
-                updatedStudent.setId(id);
-                studentRepository.save(updatedStudent);
+            Student existingStudent = studentRepository.findByUsername(username);
+            if (existingStudent != null) {
+                // Update fields
+                existingStudent.setFname(updatedStudent.getFname());
+                existingStudent.setLname(updatedStudent.getLname());
+                existingStudent.setPhone(updatedStudent.getPhone());
+                existingStudent.setEmail(updatedStudent.getEmail());
+                existingStudent.setGender(updatedStudent.getGender());
+                existingStudent.setAddress(updatedStudent.getAddress());
+                existingStudent.setUniversity(updatedStudent.getUniversity());
+                existingStudent.setGradOrUn(updatedStudent.getGradOrUn());
+                existingStudent.setYearThatGraduate(updatedStudent.getYearThatGraduate());
+                existingStudent.setBirthday(updatedStudent.getBirthday());
+                existingStudent.setPath(updatedStudent.getPath());
+                existingStudent.setDegree(updatedStudent.getDegree());
+                existingStudent.setDepartment(updatedStudent.getDepartment());
+                existingStudent.setPassword(updatedStudent.getPassword());
+                // Save the updated student
+                studentRepository.save(existingStudent);
                 return "Student updated successfully";
             } else {
-                throw new ServiceException("Student not found with id: " + id);
+                throw new ServiceException("Student not found with username: " + username);
             }
         } catch (Exception e) {
             throw new ServiceException("Error occurred while updating a student", e);
@@ -76,28 +99,25 @@ public class StudentService {
 
     public String deleteStudent(String username) {
         try {
-            if (studentRepository.existsByUsername(username)) {
-                studentRepository.deleteByUsername(username);
-                return username+ "Student deleted successfully";
+            if (this.studentRepository.existsByUsername(username)) {
+                this.studentRepository.deleteByUsername(username);
+                return username + "Student deleted successfully";
             } else {
                 throw new ServiceException("Student not found with username: " + username);
             }
-        } catch (Exception e) {
-            throw new ServiceException("Error occurred while deleting a student", e);
+        } catch (Exception var3) {
+            throw new ServiceException("Error occurred while deleting a student", var3);
         }
     }
 
     public List<Job> findJobsByStudentUsername(String username) {
-        Student student = studentRepository.findByUsername(username);
+        Student student = this.studentRepository.findByUsername(username);
         if (student == null) {
-            // Handle the case where the student doesn't exist
             return Collections.emptyList();
+        } else {
+            String path = student.getPath();
+            return this.jobRepository.findByPath(path);
         }
-
-        String path = student.getPath();
-
-        // Now, find all jobs with the same path
-        return jobRepository.findByPath(path);
     }
 
     public boolean login(String username, String password) {
@@ -105,7 +125,7 @@ public class StudentService {
         Student student = studentRepository.findByUsername(username);
 
         // Check if the student exists and if the password matches
-        if (student != null && student.getPassword().equals(password)) {
+        if (student != null && passwordEncoder.matches(password, student.getPassword())) {
             // Return true if the credentials are valid
             return true;
         } else {
@@ -115,7 +135,12 @@ public class StudentService {
     }
 
 
+    public void saveQuizScore(String username, String quizId, int score) {
+        Student student = this.studentRepository.findByUsername(username);
+        if (student != null) {
+            student.getQuizScores().put(quizId, score);
+            this.studentRepository.save(student);
+        }
 
+    }
 }
-
-

@@ -5,9 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+import java.util.Map;
 
 @Document(collection = "students")
 @Data
@@ -24,6 +26,8 @@ public class Student {
     private String phone;
     private String email;
     private String username;
+    @Transient
+    private String rawPassword;
     private String password;
 
     private String gender;
@@ -36,6 +40,5 @@ public class Student {
     private String path; // Path that the student wants to pursue
     private String degree;
     private String department;
-
-
+    private Map<String, Integer> quizScores;
 }
