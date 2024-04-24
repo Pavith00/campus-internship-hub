@@ -51,3 +51,16 @@
     font-size: 20px;
     font-weight: 800;
 }
+.data-raw{
+	padding: 0.4rem 0rem 0.4rem 0rem !important;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+    align-content: flex-start;
+	font-family: 'Poppins', sans-serif;
+	
+}
+td {
+    padding: 15px; /* Adjust the value as needed */
+    
+  }

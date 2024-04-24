@@ -6,6 +6,8 @@ import image from 'E:/fullstack-project/InternshipHub_backend/campus_internshiph
 import { BsBriefcaseFill, BsTrophy } from 'react-icons/bs'; // Import Bootstrap icon for building
 import { Link } from 'react-router-dom';
 import ChatBot from '../Chatbot/Chatbot.jsx';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 function Job() {
     const [jobs, setJobs] = useState([]);
@@ -129,21 +131,39 @@ function Job() {
                             <ul className="job-list">
                                 {jobs.map(job => (
                                     <li className="job-preview" key={job.id}>
-                                        <div >
-                                            <h4 className="job-title">
-                                                <i className="bi bi-building company-icon"></i>
-                                                <BsBriefcaseFill className="company-icon" />&nbsp;&nbsp;{job.title}
-                                            </h4>
-                                            <h6 className="company">
-                                                {job.company}
-                                            </h6>
-                                            <h5 className="company">
-                                                {job.description}
-                                            </h5>
-                                            <h5 className="company">
-                                                {job.skills}
-                                            </h5>
-                                        </div>
+                                       <div >
+                                <h4 className="job-title">
+                                    <i className="bi bi-briefcase "></i>
+                                    {job.title}
+                                </h4>
+                                <h6 className="company">
+                                    {job.company} 
+                                </h6>
+                                <h5 className="company">
+                                    {job.path}
+                                </h5>
+                                
+                                <h5 className="company">
+                                    {job.skills}
+                                </h5>
+                                <div className='data-raw'><table>
+                                    <tr>
+                                       
+                                        <td>
+                                            <i className="bi bi-geo-alt company-icon"></i>
+                                            {job.location}
+                                        </td>
+                                        <td>
+                                            <i className="bi bi-file-earmark company-icon"></i>
+                                            {job.contractType}
+                                        </td>
+                                        <td>
+                                            <i className="bi bi-currency-dollar company-icon"></i>
+                                            {job.salary}
+                                        </td>
+                                    </tr>
+                                </table></div>
+                            </div>
                                         <Link to={`/CVUpload/${job.title}`} className="btn btn-apply float-sm-right float-xs-left"> {/* Update the link */}
                                             Apply
                                         </Link>

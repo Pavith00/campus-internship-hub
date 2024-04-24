@@ -47,11 +47,11 @@ const MainAdminLogin = () => {
           <span>Sign In</span>
         </button>
         <div>
-        <button  className="sign-in_btn" style={{ width: '400px' }}>
-        <Link to="/adminLogin" style={{ textDecoration: 'none', textDecoration: 'none', color: 'white' }}>
-    <span>Login As Admin</span>
-  </Link>
-        </button>
+        <div>
+          
+          <p className="link">Sign As Guider<Link to={'/adminLogin'}><a href="" className="link"> Sign in now</a> </Link></p>
+         
+        </div>
         </div>
         <p className="note">Terms of use &amp; Conditions</p>
       </form>

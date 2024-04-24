@@ -39,6 +39,23 @@ function CreateAccount() {
       alert("Please enter a valid phone number (10 digits only)");
       return;
     }
+
+    // Regular expression for password validation (minimum 6 characters)
+  const passwordRegex = /^.{6,}$/;
+
+  // Check if password meets minimum length requirement
+  if (!passwordRegex.test(rawPassword)) {
+    alert("Password must be at least 6 characters long");
+    return;
+  }
+  // Regular expression for username validation (at least 3 characters)
+  const usernameRegex = /^[a-zA-Z0-9_]{3,}$/;
+
+  // Check if username meets minimum length requirement
+  if (!usernameRegex.test(username)) {
+    alert("Username must be at least 3 characters long and can only contain letters, numbers, and underscores");
+    return;
+  }
     /***** */
     try {
       const response = await axios.post("http://localhost:8080/student/add", {

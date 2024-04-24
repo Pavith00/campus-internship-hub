@@ -186,13 +186,10 @@ function QuizScoreDisplay() {
                 <h4>Quiz Scores:</h4>
                 <ul>
                   {candidate.quizScores.map((attempt, index) => (
-                    <div key={index} className="mb-3">
-                    <p><b>Quiz Title:</b> {attempt.quizTitle}</p>
-                    {/* Progress bar component */}
-                    <div className="progress">
-                      <div className="progress-bar" role="progressbar" style={{ width: `${attempt.quizScore}%` }} aria-valuenow={attempt.quizScore} aria-valuemin="0" aria-valuemax="100">{attempt.quizScore}%</div>
-                    </div>
-                  </div>
+                    <li key={index}>
+                      <p><b>Quiz Title:</b> {attempt.quizTitle}</p>
+                      <p><b>Quiz Score:</b> {attempt.quizScore}</p>
+                    </li>
                   ))}
                 </ul>
                 <Button type="primary" href={`http://localhost:8080/cv/${candidate.id}`} download>Download CV</Button>

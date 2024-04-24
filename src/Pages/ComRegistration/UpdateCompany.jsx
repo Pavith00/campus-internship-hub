@@ -16,7 +16,7 @@ function UpdateCompany() {
     description: "",
     website: "",
     username: "",
-    password: ""
+    
   });
 
   useEffect(() => {
@@ -111,16 +111,9 @@ function UpdateCompany() {
           <input type="text" name="text" placeholder="Enter website URL" value={companyData.website} onChange={handleChange} required />
         </div>
 
-        <div className="column">
-          
-          <div className="input-box">
-            <label>Password</label>
-            <input type="password" name="password" placeholder="Enter Password" value={companyData.password} onChange={handleChange} required />
-          </div>
-        </div>
 
         <button type="submit">Update</button>
-        <Link to={'/profile'}>
+        <Link to={'/com-profile'}>
           <button type="button">Cancel</button>
         </Link>
       </form>

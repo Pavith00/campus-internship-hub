@@ -34,6 +34,9 @@ function CVUpload() {
             .then(response => {
                 setJob(response.data);
                 setLoading(false);
+// Set initial values for company name and job title
+                setCompanyName(response.data.company);
+                setUserJobTitle(response.data.title);
             })
             .catch(error => {
                 console.error('Error fetching job details:', error);
@@ -107,9 +110,18 @@ function CVUpload() {
                 <div class="CVcard">
                     <div class="CVcard-body">
                         <h2 className='color'>{job.title}</h2>
-                        <p>Company: {job.company}</p>
-                        <p>job Description: {job.longdescription}</p>
-                        <p>Skills: {job.skills}</p>
+                        <p>{job.company}</p>
+                        <div><table>
+                            <tr>
+                            <td>{job.contractType}</td>
+                            <td>{job.location}</td>
+                            <td>{job.salary}</td>
+                            </tr>
+                        </table></div>
+                        <p><b>About the job:</b> {job.longDescription}</p>
+                        <p><b>Skills you shouls have:</b> {job.skills}</p>
+                        <p><b>Requirements:</b>Requirements: {job.qualifications}</p>
+
 
                         <form onSubmit={handleSubmit}>
                             <div className="col-sm-6">
@@ -121,7 +133,7 @@ function CVUpload() {
                                     placeholder="Enter your first name"
                                     value={name}
                                     onChange={(e) => setFirstName(e.target.value)}
-                                    required
+                                    required 
                                 />
                             </div>
                             {/* Add similar inputs for other fields */}
@@ -170,7 +182,7 @@ function CVUpload() {
                                 placeholder="Enter your company name" 
                                 value={companyName} 
                                 onChange={(e) => setCompanyName(e.target.value)} 
-                                required 
+                                required disabled
                             />
                         </div>
 
@@ -184,7 +196,7 @@ function CVUpload() {
                             placeholder="Enter your job title" 
                             value={userJobTitle} 
                             onChange={(e) => setUserJobTitle(e.target.value)} 
-                            required 
+                            required disabled
                             />
                         </div>
                        

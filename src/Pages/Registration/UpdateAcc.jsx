@@ -12,7 +12,6 @@ function UpdateAcc() {
     birthday: "",
     gender: "",
     address: "",
-    rawPassword: "",
     username: "",
     university: "",
     gradOrUn: "",
@@ -89,16 +88,9 @@ function UpdateAcc() {
           <input type="date" name="birthday" value={userData.birthday} onChange={handleChange} required />
         </div>
 
-        <div className="column">
-          <div className="input-box">
-            <label>Username</label>
-            <input type="text" name="username" placeholder="Enter Username" value={userData.username} onChange={handleChange} required />
-          </div>
-          <div className="input-box">
-            <label>Password</label>
-            <input type="password" name="rawPassword" placeholder="Enter Password" value={userData.rawPassword} onChange={handleChange} required />
-          </div>
-        </div>
+        
+      
+        
 
         <div className="input-box address">
           <label>Address</label>
@@ -126,9 +118,10 @@ function UpdateAcc() {
           <div className="select-box">
             <select name="university" value={userData.university} onChange={handleChange} required>
               <option hidden>Select university</option>
-              <option>University 1</option>
-              <option>University 2</option>
-              <option>University 3</option>
+              <option>University of Kelaniya</option>
+                <option>University of Peradeniya</option>
+                <option>University of Jayawardhanapura</option>
+                <option>University of Colombo</option>
             </select>
           </div>
         </div>
@@ -164,13 +157,17 @@ function UpdateAcc() {
           <div className="select-box">
             <select name="path" value={userData.path} onChange={handleChange} required>
               <option hidden>Select Path</option>
-              <option>Path 1</option>
-              <option>Path 2</option>
-              <option>Path 3</option>
+              <option>Software Development</option>
+                  <option>Information Technology (IT) Services</option>
+                  <option>Data Science and Analytics</option>
+                  <option>Cloud Computing</option>
+                  <option>Database Administration</option>
+                  <option>DevOps</option>
+                  <option>Quality Assurance (QA) and TestingUI/UX Design</option>
             </select>
           </div>
         </div>
-
+        
         <button type="submit">Update</button>
         <Link to={'/profile'}>
           <button type="button">Cancel</button>

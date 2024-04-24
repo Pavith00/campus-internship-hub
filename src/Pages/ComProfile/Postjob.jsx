@@ -9,7 +9,11 @@ function Postjob() {
   const [path, setPath] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [longDescription, setLongDescription] = useState("");
   const [skills, setSkills] = useState("");
+  const [qualifications, setQualifications] = useState("");
+  const [salary, setSalary] = useState("");
+  const [contractType, setContractType] = useState("");
   const [location, setLocation] = useState("");
   const navigate = useNavigate();
 
@@ -37,7 +41,11 @@ const handleSubmit = async (e) => {
       path: path,
       title: title,
       description: description,
+      longDescription:longDescription,
       skills: skills,
+      qualifications: qualifications,
+      salary: salary,
+      contractType: contractType,
       location: location
     });
     console.log(response.data);
@@ -50,7 +58,11 @@ const handleSubmit = async (e) => {
       setPath("");
       setTitle("");
       setDescription("");
+      setLongDescription("");
       setSkills("");
+      setQualifications("");
+      setSalary("");
+      setContractType("")
       setLocation("");
     } else if (response.data === "Job already exists with the same title") {
       alert("Job already exists with the same title");
@@ -113,14 +125,17 @@ const handleSubmit = async (e) => {
         <div class="card">
           <div class="card-body">
             <form onSubmit={handleSubmit}>
+
             <div class="mb-3">
-    <label for="companyInput" class="form-label">Company Name</label>
-    <input type="text" class="form-control cl" id="companyInput" placeholder="Company Name" value={company} onChange={(e) => setCompany(e.target.value)} required disabled />
-  </div>
+              <label for="companyInput" class="form-label">Company Name</label>
+              <input type="text" class="form-control cl" id="companyInput" placeholder="Company Name" value={company} onChange={(e) => setCompany(e.target.value)} required disabled />
+            </div>
+
               <div class="mb-3">
                 <label for="titleInput" class="form-label">Job Title</label>
                 <input type="text" class="form-control cl" id="titleInput" placeholder="Job Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
               </div>
+
               <div class="mb-3">
                 <label for="industrySelect" class="form-label">Industry</label>
                 <select class="form-select cl" id="industrySelect" aria-label="Select Industry" value={path} onChange={(e) => setPath(e.target.value)} required>
@@ -134,18 +149,54 @@ const handleSubmit = async (e) => {
                   <option>Quality Assurance (QA) and TestingUI/UX Design</option>
                 </select>
               </div>
+
               <div class="mb-3">
                 <label for="descriptionInput" class="form-label">Description</label>
                 <textarea class="form-control cl" id="descriptionInput" placeholder="Job Description" value={description} onChange={(e) => setDescription(e.target.value)} required />
               </div>
+
+              <div className="mb-3">
+                <label For="longDescriptionInput" class="form-label">Long Description</label>
+                <textarea 
+                  class="form-control cl" 
+                  id="longDescriptionInput" 
+                  placeholder="Job Description" 
+                  value={longDescription} 
+                  onChange={(e) => setLongDescription(e.target.value)} 
+                  required 
+                />
+              </div>
+
               <div class="mb-3">
                 <label for="skillsInput" class="form-label">Skills Required</label>
                 <input type="text" class="form-control cl" id="skillsInput" placeholder="Skills Required" value={skills} onChange={(e) => setSkills(e.target.value)} required />
               </div>
+
+              <div className="mb-3">
+                <label For="qualificationsInput" class="form-label">Qualifications</label>
+                <textarea class="form-control cl" id="qualificationsInput" placeholder="Qualifications" value={qualifications} onChange={(e) => setQualifications(e.target.value)} required />
+              </div>
+
+              <div className="mb-3">
+                <label For="salaryInput" class="form-label">Salary</label>
+                <input type="text" class="form-control cl" id="salaryInput" placeholder="Salary" value={salary} onChange={(e) => setSalary(e.target.value)} required />
+              </div>
+
+              <div className="mb-3">
+                <label For="contractTypeSelect" class="form-label">Contract Type</label>
+                <select class="form-select cl" id="contractTypeSelect" aria-label="Select Contract Type" value={contractType} onChange={(e) => setContractType(e.target.value)} required>
+                  <option value="">Select Contract Type</option>
+                  <option value="full-time">Full Time</option>
+                  <option value="part-time">Part Time</option>
+                  <option value="remote">Remote</option>
+                </select>
+              </div>
+
               <div class="mb-3">
                 <label for="locationInput" class="form-label">Location</label>
                 <input type="text" class="form-control cl" id="locationInput" placeholder="Job Location" value={location} onChange={(e) => setLocation(e.target.value)} required />
               </div>
+
               <button type="submit" class="btn btn-primary">Post Job</button>
             </form>
           </div>

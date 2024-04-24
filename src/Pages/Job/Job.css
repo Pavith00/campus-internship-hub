@@ -319,3 +319,12 @@ ul.job-list > li.job-preview:hover {
 	}
 
 }
+.data-raw{
+	padding: 0.4rem 0rem 0.4rem 0rem !important;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+    align-content: flex-start;
+	font-family: 'Poppins', sans-serif;
+	
+}

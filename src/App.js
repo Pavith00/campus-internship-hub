@@ -27,6 +27,7 @@ import AdminDashboard from './Pages/Videos/AdminDashboard';
 import Home from './Pages/Home/Home';
 import UpdateAcc from './Pages/Registration/UpdateAcc';
 import UpdateCompany from './Pages/ComRegistration/UpdateCompany';
+import QuizScoreDisplay from './Pages/ViewCv/QuizScoreDisplay';
 
 
 function App() {
@@ -127,6 +128,7 @@ function App() {
                                         <Route path="/adminPage" element={<AdminProfile/>} />
                                         <Route path="/videos" element={<AvailableVideosPage/>} />
                                         <Route path="/addvideos" element={<AdminDashboard/>} />
+                                        <Route path="/d" element={<QuizScoreDisplay/>} />
                                        
                                         
                                         <Route path="/ff" element={<Contactus/>} />

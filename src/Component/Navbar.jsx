@@ -29,6 +29,18 @@ function Navbar() {
                         <b>Admin</b>
                     </Link>
                 )}
+
+                {location.pathname !== '/' && location.pathname !== '/adminPage' && location.pathname !== '/quizupload' && location.pathname !== '/Com-Profile' && location.pathname !== '/postjob' && location.pathname !== '/com-profile' && location.pathname !== '/candidates' && location.pathname !== '/profile' && location.pathname !== '/addvideos' && (
+                    <Link to="/" className="custom-button">
+                        <b>job</b>
+                    </Link>
+                )}
+
+                {location.pathname !== '/' && location.pathname !== '/adminPage' && location.pathname !== '/quizupload' && location.pathname !== '/Com-Profile' && location.pathname !== '/postjob'  && location.pathname !== '/com-profile' && location.pathname !== '/candidates' && location.pathname !== '/profile' && location.pathname !== '/addvideos' && (
+                    <Link to="/profile" className="custom-button">
+                        <b>Profile</b>
+                    </Link>
+                )}
                 
                 
                 {location.pathname == '/' && ( /* Add this condition for the "Post a Job" button */

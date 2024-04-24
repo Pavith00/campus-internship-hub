@@ -32,6 +32,25 @@ function CompanyRegistration() {
       alert("Please enter a valid phone number (10 digits only)");
       return;
     }
+    // Regular expression for password validation (minimum 6 characters)
+  const passwordRegex = /^.{6,}$/;
+
+  // Check if password meets minimum length requirement
+  if (!passwordRegex.test(password)) {
+    alert("Password must be at least 6 characters long");
+    return;
+  }
+  // Regular expression for username validation (at least 3 characters)
+  const usernameRegex = /^[a-zA-Z0-9_]{3,}$/;
+
+  // Check if username meets minimum length requirement
+  if (!usernameRegex.test(username)) {
+    alert("Username must be at least 3 characters long and can only contain letters, numbers, and underscores");
+    return;
+  }
+
+
+
     /***** */
     try {
       const response = await axios.post("http://localhost:8080/company/add", {
@@ -121,7 +140,7 @@ function CompanyRegistration() {
           <div className="select-box">
           <select value={industry} onChange={(e) => setIndustry(e.target.value)} required>
             <option hidden>Select industry</option>
-            <option>Software Development</option>
+                  <option>Software Development</option>
                   <option>Information Technology (IT) Services</option>
                   <option>Data Science and Analytics</option>
                   <option>Cloud Computing</option>
@@ -142,6 +161,13 @@ function CompanyRegistration() {
           <label>Website</label>
           <input type="text" placeholder="Enter website" value={website} onChange={(e) => setWebsite(e.target.value)} required />
         </div>
+
+        <div className="column">
+          <div className="input-box">
+            <label>Username</label>
+            <input type="username" placeholder="Enter Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+          </div>
+          </div>
 
         <div className="column">
           

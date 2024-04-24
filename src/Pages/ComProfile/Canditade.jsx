@@ -105,7 +105,7 @@ function Candidates() {
               <p><b>Path:</b> {job.path}</p>
               <p><b>Description:</b> {job.description}</p>
               <p><b>Skills:</b> {job.skills}</p>
-              <p><b>Industry:</b> {job.industry}</p>
+              
               <p><b>Location:</b> {job.location}</p>
               {/* Display other job details */}
               <button onClick={() => deleteJob(job.title)} className="btn btn-danger">Delete</button>

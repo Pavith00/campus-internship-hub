@@ -48,7 +48,7 @@ function AdminLogin() {
     };
   
     if (loggedIn || localStorage.getItem('username')) {
-      return <Navigate to="/adminPage" />;
+      return <Navigate to="/quizupload" />;
     }
   
     return (
