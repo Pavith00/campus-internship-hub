@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import '../CVUpload/CVUpload.css';
 import './AdminForm.css'
 
+
+
 function AdminForm() {
   const [adminUsers, setAdminUsers] = useState([]);
   const [adminFormData, setAdminFormData] = useState({
@@ -13,6 +15,9 @@ function AdminForm() {
     username: '',
     password: ''
   });
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\d{10}$/;
 
   useEffect(() => {
     fetchAdminUsers();
@@ -29,6 +34,32 @@ function AdminForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const { name, phone, email, username, password } = adminFormData;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+    if (!phoneRegex.test(phone)) {
+      alert("Please enter a valid phone number (10 digits only)");
+      return;
+    }
+    // Regular expression for password validation (minimum 6 characters)
+  const passwordRegex = /^.{6,}$/;
+
+  // Check if password meets minimum length requirement
+  if (!passwordRegex.test(password)) {
+    alert("Password must be at least 6 characters long");
+    return;
+  }
+  // Regular expression for username validation (at least 3 characters)
+  const usernameRegex = /^[a-zA-Z0-9_]{3,}$/;
+
+  // Check if username meets minimum length requirement
+  if (!usernameRegex.test(username)) {
+    alert("Username must be at least 3 characters long and can only contain letters, numbers, and underscores");
+    return;
+  }
+
     try {
       const response = await axios.post("http://localhost:8080/user/register", adminFormData);
       if (response.data.startsWith("Username")) {

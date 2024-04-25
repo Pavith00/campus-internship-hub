@@ -111,13 +111,23 @@ function CVUpload() {
                     <div class="CVcard-body">
                         <h2 className='color'>{job.title}</h2>
                         <p>{job.company}</p>
-                        <div><table>
-                            <tr>
-                            <td>{job.contractType}</td>
-                            <td>{job.location}</td>
-                            <td>{job.salary}</td>
-                            </tr>
-                        </table></div>
+                        <div className='data-raw'><table>
+                                    <tr>
+                                       
+                                        <td>
+                                            <i className="bi bi-geo-alt company-icon"></i>
+                                            {job.location}
+                                        </td>
+                                        <td>
+                                            <i className="bi bi-file-earmark company-icon"></i>
+                                            {job.contractType}
+                                        </td>
+                                        <td>
+                                            <i className="bi bi-currency-dollar company-icon"></i>
+                                            {job.salary}
+                                        </td>
+                                    </tr>
+                                </table></div>
                         <p><b>About the job:</b> {job.longDescription}</p>
                         <p><b>Skills you shouls have:</b> {job.skills}</p>
                         <p><b>Requirements:</b>Requirements: {job.qualifications}</p>

@@ -151,16 +151,16 @@ const handleSubmit = async (e) => {
               </div>
 
               <div class="mb-3">
-                <label for="descriptionInput" class="form-label">Description</label>
-                <textarea class="form-control cl" id="descriptionInput" placeholder="Job Description" value={description} onChange={(e) => setDescription(e.target.value)} required />
+                <label for="descriptionInput" class="form-label">Short Description</label>
+                <textarea class="form-control cl" id="descriptionInput" placeholder="Enter short Description about job" value={description} onChange={(e) => setDescription(e.target.value)} required />
               </div>
 
               <div className="mb-3">
-                <label For="longDescriptionInput" class="form-label">Long Description</label>
+                <label For="longDescriptionInput" class="form-label">Detailed Description</label>
                 <textarea 
                   class="form-control cl" 
                   id="longDescriptionInput" 
-                  placeholder="Job Description" 
+                  placeholder="Enter Detailed Description" 
                   value={longDescription} 
                   onChange={(e) => setLongDescription(e.target.value)} 
                   required 
@@ -179,7 +179,7 @@ const handleSubmit = async (e) => {
 
               <div className="mb-3">
                 <label For="salaryInput" class="form-label">Salary</label>
-                <input type="text" class="form-control cl" id="salaryInput" placeholder="Salary" value={salary} onChange={(e) => setSalary(e.target.value)} required />
+                <input type="text" class="form-control cl" id="salaryInput" placeholder="Salary" value={salary} onChange={(e) => setSalary(e.target.value)}  />
               </div>
 
               <div className="mb-3">
@@ -194,7 +194,7 @@ const handleSubmit = async (e) => {
 
               <div class="mb-3">
                 <label for="locationInput" class="form-label">Location</label>
-                <input type="text" class="form-control cl" id="locationInput" placeholder="Job Location" value={location} onChange={(e) => setLocation(e.target.value)} required />
+                <input type="text" class="form-control cl" id="locationInput" placeholder="Ex:Colombo,Sri Lanka" value={location} onChange={(e) => setLocation(e.target.value)} required />
               </div>
 
               <button type="submit" class="btn btn-primary">Post Job</button>

@@ -211,9 +211,14 @@ function CreateAccount() {
   <div className="select-box">
     <select value={path} onChange={(e) => setPath(e.target.value)} required>
       <option hidden>Select Path</option>
-      <option value="IT">IT</option>
-      <option value="path2">Statistics</option>
-      <option value="path3"></option>
+      <option selected >Choose the Industry</option>
+                  <option>Software Development</option>
+                  <option>Information Technology (IT) Services</option>
+                  <option>Data Science and Analytics</option>
+                  <option>Cloud Computing</option>
+                  <option>Database Administration</option>
+                  <option>DevOps</option>
+                  <option>Quality Assurance (QA) and TestingUI/UX Design</option>
       
     </select>
   </div>
