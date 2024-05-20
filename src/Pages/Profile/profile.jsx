@@ -49,18 +49,18 @@ function Profile() {
     }
   };
 
-  const deleteCompany = () => {
+  const deleteStudent = () => {
     const username = localStorage.getItem('username');
     axios
-      .delete(`http://localhost:8080/company/${username}`)
+      .delete(`http://localhost:8080/student/${username}`)
       .then((response) => {
-        console.log('Company deleted:', response.data);
-        alert('Company profile successfully deleted.');
+        console.log('Student deleted:', response.data);
+        alert('Student profile successfully deleted.');
         // Perform any additional actions after successful deletion
       })
       .catch((error) => {
-        console.error('Error deleting company:', error);
-        alert('Company profile failed to delete.');
+        console.error('Error deleting student:', error);
+        alert('Student profile failed to delete.');
       });
   };
 
@@ -116,7 +116,7 @@ function Profile() {
             Logout
           </button></Link><br/>
           <Link to="/">
-          <button onClick={ deleteCompany} type="button" className="btn btn-outline-danger b">Delete Profile</button></Link>
+          <button onClick={ deleteStudent} type="button" className="btn btn-outline-danger b">Delete Profile</button></Link>
         </center>
 
       </div>

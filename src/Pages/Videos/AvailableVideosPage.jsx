@@ -20,8 +20,10 @@ function AvailableVideosPage() {
   }, []);
 
   return (
+    
     <div className="video-container">
-      <h2>Available Mentorship Videos</h2>
+      <br></br><br></br><br></br>
+      <h2>Available Skill Development Videos</h2>
       <div className="videos-list">
         {videos.map((video, index) => (
           <div key={index} className="video-item">
