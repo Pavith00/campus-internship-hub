@@ -50,25 +50,34 @@ Organizations can easily post available internships, manage applications, and ma
  
 ## Screenshots
 
-| ![Screenshot 1](https://github.com/Pavith00/campus-internship-hub/assets/113990110/2ec1c5b7-6a36-4c00-a008-7d9f383f2836) | ![Screenshot 2](https://github.com/Pavith00/campus-internship-hub/assets/113990110/0bf6b5dc-51e3-4d15-85d1-6c668e66bda7) |
+| ![Screenshot 1](https://github.com/Pavith00/campus-internship-hub/assets/113990110/2ec1c5b7-6a36-4c00-a008-7d9f383f2836) | ![Screenshot 2](![Screenshot 2024-05-23 015814](https://github.com/Pavith00/campus-internship-hub/assets/113990110/4cb3abb3-624d-4e17-a210-51550d42a739)
+) |
 |-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Caption for Screenshot 1                                                                                                    | Caption for Screenshot 2                                                                                                    |
+| Home page                                                                                                    | Available jobs                                                                                                    |
 
-| ![Screenshot 3](https://github.com/Pavith00/campus-internship-hub/assets/113990110/bb9dda5e-149d-4eec-957f-202428ba79b9) | ![Screenshot 4](https://github.com/Pavith00/campus-internship-hub/assets/113990110/f8b2d8b5-22c6-451a-84be-9ed7e0bdca2d) |
+| ![Screenshot 3](![Screenshot 2024-05-23 015842](https://github.com/Pavith00/campus-internship-hub/assets/113990110/57db0b14-4b04-4502-93f1-2e7ab40bbb78)
+) | ![Screenshot 4](![Screenshot 2024-05-23 020443](https://github.com/Pavith00/campus-internship-hub/assets/113990110/c65e253a-94f6-45cc-b055-674c87a6abf2)
+) |
 |-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Caption for Screenshot 3                                                                                                    | Caption for Screenshot 4                                                                                                    |
+| Login page                                                                                                  | Create an Account                                                                                                    |
 
-| ![Screenshot 5](https://github.com/Pavith00/campus-internship-hub/assets/113990110/4f8181e8-a72c-45e4-bd53-0a11f997b74d) | ![Screenshot 6](https://github.com/Pavith00/campus-internship-hub/assets/113990110/245a6d13-1470-4026-a89c-e885cbe0aec6) |
+| ![Screenshot 5](![Screenshot 2024-05-23 020107](https://github.com/Pavith00/campus-internship-hub/assets/113990110/9627e1f6-b230-4fbb-81d1-2ab6ab242eac)
+) | ![Screenshot 6](![Screenshot 2024-05-23 020400](https://github.com/Pavith00/campus-internship-hub/assets/113990110/289e0794-1159-442d-b6f9-875f18bf2e30)
+) |
 |-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Caption for Screenshot 5                                                                                                    | Caption for Screenshot 6                                                                                                    |
+| Available Videos                                                                                                  | Available Quizzes                                                                                                   |
 
-| ![Screenshot 7](https://github.com/Pavith00/campus-internship-hub/assets/113990110/a8a2a75d-128f-4751-b775-4b214a3df13e) | ![Screenshot 8](https://github.com/Pavith00/campus-internship-hub/assets/113990110/2303e8fc-789c-4884-a75f-65de53e576ca) |
+| ![Screenshot 7](![Screenshot 2024-05-23 020521](https://github.com/Pavith00/campus-internship-hub/assets/113990110/0d79cd7a-44b5-4c5f-a158-abc3af6fd415)
+) | ![Screenshot 8](![Screenshot 2024-05-23 020633](https://github.com/Pavith00/campus-internship-hub/assets/113990110/723ba966-a0dc-45f4-a467-aeaae4b92275)
+) |
 |-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Caption for Screenshot 7                                                                                                    | Caption for Screenshot 8                                                                                                    |
+| Company Profile                                                                                                    | Candidate Details                                                                                                    |
 
-| ![Screenshot 9](https://github.com/Pavith00/campus-internship-hub/assets/113990110/3394c3ee-9779-4c91-b7a6-08a1f2f16801) | ![Screenshot 10](https://github.com/Pavith00/campus-internship-hub/assets/113990110/d3c38b3e-bcda-46c2-b93b-6e227dcf7eca) |
+| ![Screenshot 2024-05-23 020825](https://github.com/Pavith00/campus-internship-hub/assets/113990110/b974e2bd-ac56-4fac-b3b7-f0591d5cba68)
+) |![Screenshot 2024-05-23 020844](https://github.com/Pavith00/campus-internship-hub/assets/113990110/dc552e6b-e8c5-48f6-97eb-b15ba466b58a)
+) |
 |------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Caption for Screenshot 9                                                                                                     | Caption for Screenshot 10                                                                                                    |
+| Apply for a job                                                                                                     | Download CV                                                                                                   |
 
 
 ## Contributors
