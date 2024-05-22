@@ -49,35 +49,25 @@ Organizations can easily post available internships, manage applications, and ma
   - Other project-related files (`.gitignore`, `package-lock.json`, `package.json`, etc.)
  
 ## Screenshots
-
-| ![Screenshot 1](https://github.com/Pavith00/campus-internship-hub/assets/113990110/2ec1c5b7-6a36-4c00-a008-7d9f383f2836) | ![Screenshot 2](![Screenshot 2024-05-23 015814](https://github.com/Pavith00/campus-internship-hub/assets/113990110/4cb3abb3-624d-4e17-a210-51550d42a739)
-) |
+| ![Screenshot 1](https://github.com/Pavith00/campus-internship-hub/assets/113990110/2ec1c5b7-6a36-4c00-a008-7d9f383f2836) | ![Screenshot 2](https://github.com/Pavith00/campus-internship-hub/assets/113990110/4cb3abb3-624d-4e17-a210-51550d42a739) |
 |-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Home page                                                                                                    | Available jobs                                                                                                    |
+| Home page                                                                                                                  | Available jobs                                                                                                              |
 
-| ![Screenshot 3](![Screenshot 2024-05-23 015842](https://github.com/Pavith00/campus-internship-hub/assets/113990110/57db0b14-4b04-4502-93f1-2e7ab40bbb78)
-) | ![Screenshot 4](![Screenshot 2024-05-23 020443](https://github.com/Pavith00/campus-internship-hub/assets/113990110/c65e253a-94f6-45cc-b055-674c87a6abf2)
-) |
+| ![Screenshot 3](https://github.com/Pavith00/campus-internship-hub/assets/113990110/57db0b14-4b04-4502-93f1-2e7ab40bbb78) | ![Screenshot 4](https://github.com/Pavith00/campus-internship-hub/assets/113990110/c65e253a-94f6-45cc-b055-674c87a6abf2) |
 |-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Login page                                                                                                  | Create an Account                                                                                                    |
+| Login page                                                                                                                 | Create an Account                                                                                                           |
 
-| ![Screenshot 5](![Screenshot 2024-05-23 020107](https://github.com/Pavith00/campus-internship-hub/assets/113990110/9627e1f6-b230-4fbb-81d1-2ab6ab242eac)
-) | ![Screenshot 6](![Screenshot 2024-05-23 020400](https://github.com/Pavith00/campus-internship-hub/assets/113990110/289e0794-1159-442d-b6f9-875f18bf2e30)
-) |
+| ![Screenshot 5](https://github.com/Pavith00/campus-internship-hub/assets/113990110/9627e1f6-b230-4fbb-81d1-2ab6ab242eac) | ![Screenshot 6](https://github.com/Pavith00/campus-internship-hub/assets/113990110/289e0794-1159-442d-b6f9-875f18bf2e30) |
 |-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Available Videos                                                                                                  | Available Quizzes                                                                                                   |
+| Available Videos                                                                                                           | Available Quizzes                                                                                                           |
 
-| ![Screenshot 7](![Screenshot 2024-05-23 020521](https://github.com/Pavith00/campus-internship-hub/assets/113990110/0d79cd7a-44b5-4c5f-a158-abc3af6fd415)
-) | ![Screenshot 8](![Screenshot 2024-05-23 020633](https://github.com/Pavith00/campus-internship-hub/assets/113990110/723ba966-a0dc-45f4-a467-aeaae4b92275)
-) |
+| ![Screenshot 7](https://github.com/Pavith00/campus-internship-hub/assets/113990110/0d79cd7a-44b5-4c5f-a158-abc3af6fd415) | ![Screenshot 8](https://github.com/Pavith00/campus-internship-hub/assets/113990110/723ba966-a0dc-45f4-a467-aeaae4b92275) |
 |-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Company Profile                                                                                                    | Candidate Details                                                                                                    |
+| Company Profile                                                                                                            | Candidate Details                                                                                                           |
 
-| ![Screenshot 2024-05-23 020825](https://github.com/Pavith00/campus-internship-hub/assets/113990110/b974e2bd-ac56-4fac-b3b7-f0591d5cba68)
-) |![Screenshot 2024-05-23 020844](https://github.com/Pavith00/campus-internship-hub/assets/113990110/dc552e6b-e8c5-48f6-97eb-b15ba466b58a)
-) |
+| ![Screenshot 9](https://github.com/Pavith00/campus-internship-hub/assets/113990110/b974e2bd-ac56-4fac-b3b7-f0591d5cba68) | ![Screenshot 10](https://github.com/Pavith00/campus-internship-hub/assets/113990110/dc552e6b-e8c5-48f6-97eb-b15ba466b58a) |
 |------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Apply for a job                                                                                                     | Download CV                                                                                                   |
+| Apply for a job                                                                                                            | Download CV                                                                                                                  |
 
 
 ## Contributors
