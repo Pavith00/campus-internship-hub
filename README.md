@@ -72,6 +72,10 @@ Organizations can easily post available internships, manage applications, and ma
 |---------------------------------------------|---------------------------------------------|
 
 
+| ![Screenshot 1](/path/to/screenshot1.png) | ![Screenshot 2](/path/to/screenshot2.png) |
+|---------------------------------------------|---------------------------------------------|
+| Caption for Screenshot 1                    | Caption for Screenshot 2  
+
 
 ## Contributors
 
