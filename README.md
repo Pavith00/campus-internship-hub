@@ -50,29 +50,10 @@ Organizations can easily post available internships, manage applications, and ma
  
 ## Screenshots
 
-| ![Screenshot 1](![Screenshot 2024-05-23 015407](https://github.com/Pavith00/campus-internship-hub/assets/113990110/095efc7b-71b6-4780-8cbb-d6870b67ee16)
-) | ![Screenshot 2](![Screenshot 2024-05-23 015814](https://github.com/Pavith00/campus-internship-hub/assets/113990110/b2a3ec53-ca7d-4389-ae6c-3aa5413c700d)
-) |
-|---------------------------------------------|---------------------------------------------|
-| ![Screenshot 1](![Screenshot 2024-05-23 015842](https://github.com/Pavith00/campus-internship-hub/assets/113990110/bbdafa44-8892-4666-8bf1-6ce4069c5e45)
-) | ![Screenshot 2](![Screenshot 2024-05-23 020443](https://github.com/Pavith00/campus-internship-hub/assets/113990110/1914ee7d-251d-44f6-8ae5-60d13ba504d8)
-) |
-|---------------------------------------------|---------------------------------------------|
-| ![Screenshot 1](![Screenshot 2024-05-23 020107](https://github.com/Pavith00/campus-internship-hub/assets/113990110/42e0fc1c-f0b6-4b3e-9eb1-381d5dfe3f15)
-) | ![Screenshot 2](![Screenshot 2024-05-23 020400](https://github.com/Pavith00/campus-internship-hub/assets/113990110/1eb87a87-e29c-42c7-a43d-da301976d8cb)
-) |
-|---------------------------------------------|---------------------------------------------|
-| ![Screenshot 1](![Screenshot 2024-05-23 020521](https://github.com/Pavith00/campus-internship-hub/assets/113990110/a1215db3-7e0c-4b69-ab2f-c3016581a68b)
-) | ![Screenshot 2](![Screenshot 2024-05-23 020633](https://github.com/Pavith00/campus-internship-hub/assets/113990110/d59b4b05-3065-4560-ad05-5b68819c8cd7)
-) |
-|---------------------------------------------|---------------------------------------------|
-| ![Screenshot 1](![Screenshot 2024-05-23 020825](https://github.com/Pavith00/campus-internship-hub/assets/113990110/088dcb52-d06f-4c67-b494-ba6914378edd)
-) | ![Screenshot 2](![Screenshot 2024-05-23 020844](https://github.com/Pavith00/campus-internship-hub/assets/113990110/5cfcd85f-2244-42e9-a5a7-b38e2b659a41)
-) |
-|---------------------------------------------|---------------------------------------------|
 
-
-| ![Screenshot 1](/path/to/screenshot1.png) | ![Screenshot 2](/path/to/screenshot2.png) |
+| ![Screenshot 1](![Screenshot 2024-05-23 015407](https://github.com/Pavith00/campus-internship-hub/assets/113990110/bca5320e-1d64-474a-9fb1-87bf834c2720)
+) | ![Screenshot 2](![Screenshot 2024-05-23 015814](https://github.com/Pavith00/campus-internship-hub/assets/113990110/10b0b6ea-de94-4c71-8ea2-ce4cc5f8865c)
+) |
 |---------------------------------------------|---------------------------------------------|
 | Caption for Screenshot 1                    | Caption for Screenshot 2  
 
