@@ -1,1 +1,19 @@
+spring :
+  data :
+    mongodb :
+      uri : mongodb+srv://pavi:pavi@cluster0.kgkjdpp.mongodb.net/
+      database : CIH
 
+#      auto-index-creation : true
+
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ridmi.y10@gmail.com
+    password: dxhz oliv ivig yypz
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
