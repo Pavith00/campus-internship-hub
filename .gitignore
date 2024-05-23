@@ -13,6 +13,7 @@
 
 #Secret
 application.yml
+resources/
 
 # misc
 .DS_Store
