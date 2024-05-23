@@ -11,6 +11,9 @@
 # production
 /build
 
+#Secret
+application.yml
+
 # misc
 .DS_Store
 .env.local
