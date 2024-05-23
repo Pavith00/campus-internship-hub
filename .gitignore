@@ -12,7 +12,7 @@
 /build
 
 #Secret
-internshipHub/src/main/resources/application.yml
+/internshipHub/src/main/resources/
 
 # misc
 .DS_Store
