@@ -12,8 +12,7 @@
 /build
 
 #Secret
-application.yml
-resources/
+internshipHub/src/main/resources/application.yml
 
 # misc
 .DS_Store
