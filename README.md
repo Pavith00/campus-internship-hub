@@ -73,7 +73,7 @@ Organizations can easily post available internships, manage applications, and ma
 ## Contributors
 
 The University InternshipHub project was made possible by the contributions of the following individuals:
-- [Ridmi](Link to Contributor 1's GitHub profile): Description of their contribution.
+- [Ridmi Yashoda](https://github.com/Riyash99): Company profile function and CV upload function.
 - [Shakya](Link to Contributor 2's GitHub profile): Description of their contribution.
 - [Pavithra Ramanayake](https://github.com/Pavith00): Student profile function and Automatic job searching function
 
